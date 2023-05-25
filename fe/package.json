@@ -29,6 +29,7 @@
     "react-scripts": "5.0.1",
     "react-scrollbar": "^0.5.6",
     "redux": "^4.2.1",
+    "sweetalert2": "^11.7.5",
     "util": "^0.12.5",
     "yup": "^0.32.11"
   },

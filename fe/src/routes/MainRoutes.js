@@ -31,9 +31,14 @@ const MainRoutes = {
     },
     { path: '/utils/util-typography', element: <UtilsTypography /> },
     { path: '/sample-page', element: <SamplePage /> },
+    // pesertapensiun
     {path: '/pesertapensiun', element: <PesertaPensiun/>},
+
+    // unitpln
     {path: '/unitpln', element: <UnitPln/>},
     {path: '/unitpln/create', element: <CreateUnitPln/>},
+
+    // tanggungan
     {path: '/tanggungan', element: <Tanggungan/>}
   ]
 };
