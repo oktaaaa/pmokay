@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from "axios";
 
 // material-ui
 import { useTheme, styled } from '@mui/material/styles';
@@ -8,18 +9,19 @@ import { Grid, Card, CardHeader, CardContent, Typography, Divider, LinearProgres
 import SalesLineCard from './SalesLineCard';
 import SalesLineCardData from './chart/sale-chart-1';
 
+
 import RevenuChartCard from './RevenuChartCard';
 import RevenuChartCardData from './chart/revenu-chart';
 import ReportCard from './ReportCard';
+
 import { gridSpacing } from 'config.js';
 
 // assets
-import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import TrendingDownIcon from '@mui/icons-material/TrendingDown';
-import MonetizationOnTwoTone from '@mui/icons-material/MonetizationOnTwoTone';
-import DescriptionTwoTone from '@mui/icons-material/DescriptionTwoTone';
-import ThumbUpAltTwoTone from '@mui/icons-material/ThumbUpAltTwoTone';
-import CalendarTodayTwoTone from '@mui/icons-material/CalendarTodayTwoTone';
+import Diversity3Icon from '@mui/icons-material/Diversity3';
+import BusinessIcon from '@mui/icons-material/Business';
+import GroupsIcon from '@mui/icons-material/Groups';
+import PersonOffIcon from '@mui/icons-material/PersonOff';
 
 // custom style
 const FlatCardBlock = styled((props) => <Grid item sm={6} xs={12} {...props} />)(({ theme }) => ({
@@ -39,48 +41,63 @@ const FlatCardBlock = styled((props) => <Grid item sm={6} xs={12} {...props} />)
 const Default = () => {
   const theme = useTheme();
 
+  const [pesertas, setPesertas] = useState([]);
+  const [units, setUnit] = useState([]);
+  // const [pesertaAktif, setPesertaAktif] = useState([]);
+  // const [pesertaNonAktif, setPesertaNonAktif] = useState([]);
+  
+  useEffect(() => {
+    getPesertas();
+    getUnits();
+  }, []);
+
+  const getPesertas = async () => {
+    const response = await axios.get(
+      "http://localhost:3000/api/pesertapensiun"
+    );
+    setPesertas(response.data);
+  };
+
+  const getUnits = async () => {
+    const response = await axios.get("http://localhost:3000/api/unitpln");
+    setUnit(response.data);
+  };
+
+
   return (
     <Grid container spacing={gridSpacing}>
       <Grid item xs={12}>
         <Grid container spacing={gridSpacing}>
           <Grid item lg={3} sm={6} xs={12}>
             <ReportCard
-              primary="$30200"
-              secondary="All Earnings"
+              primary={pesertas.length}
+              secondary="Peserta Pensiun"
               color={theme.palette.warning.main}
-              footerData="10% changes on profit"
-              iconPrimary={MonetizationOnTwoTone}
-              iconFooter={TrendingUpIcon}
+              iconPrimary={Diversity3Icon}
             />
           </Grid>
           <Grid item lg={3} sm={6} xs={12}>
             <ReportCard
-              primary="145"
-              secondary="Task"
-              color={theme.palette.error.main}
-              footerData="28% task performance"
-              iconPrimary={CalendarTodayTwoTone}
-              iconFooter={TrendingDownIcon}
-            />
-          </Grid>
-          <Grid item lg={3} sm={6} xs={12}>
-            <ReportCard
-              primary="290+"
-              secondary="Page Views"
+              primary={units.length}
+              secondary="Unit PLN"
               color={theme.palette.success.main}
-              footerData="10k daily views"
-              iconPrimary={DescriptionTwoTone}
-              iconFooter={TrendingUpIcon}
+              iconPrimary={BusinessIcon}
             />
           </Grid>
           <Grid item lg={3} sm={6} xs={12}>
             <ReportCard
-              primary="500"
-              secondary="Downloads"
+              primary="ok"
+              secondary="Peserta Aktif"
               color={theme.palette.primary.main}
-              footerData="1k download in App store"
-              iconPrimary={ThumbUpAltTwoTone}
-              iconFooter={TrendingUpIcon}
+              iconPrimary={GroupsIcon}
+            />
+          </Grid>
+          <Grid item lg={3} sm={6} xs={12}>
+            <ReportCard
+              primary="ok"
+              secondary="Peserta Non-Aktif"
+              color={theme.palette.error.main}
+              iconPrimary={PersonOffIcon}
             />
           </Grid>
         </Grid>
