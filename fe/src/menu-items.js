@@ -9,6 +9,9 @@ import ChromeReaderModeOutlinedIcon from '@mui/icons-material/ChromeReaderModeOu
 import SecurityOutlinedIcon from '@mui/icons-material/SecurityOutlined';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import BusinessRoundedIcon from '@mui/icons-material/BusinessRounded';
+import Groups2Icon from '@mui/icons-material/Groups2';
+import FolderSharedIcon from '@mui/icons-material/FolderShared';
+import FolderCopyIcon from '@mui/icons-material/FolderCopy';
 
 const icons = {
   NavigationOutlinedIcon: NavigationOutlinedIcon,
@@ -20,7 +23,10 @@ const icons = {
   BlockOutlinedIcon: BlockOutlinedIcon,
   AppsOutlinedIcon: AppsOutlinedIcon,
   ContactSupportOutlinedIcon: ContactSupportOutlinedIcon,
-  BusinessRoundedIcon: BusinessRoundedIcon
+  BusinessRoundedIcon: BusinessRoundedIcon,
+  Groups2Icon: Groups2Icon,
+  FolderSharedIcon: FolderSharedIcon,
+  FolderCopyIcon: FolderCopyIcon
 };
 
 // eslint-disable-next-line
@@ -60,7 +66,7 @@ export default {
           title: 'Peserta Pensiun',
           type: 'item',
           url: '/pesertapensiun',
-          icon: icons['ChromeReaderModeOutlinedIcon']
+          icon: icons['Groups2Icon']
         },
         {
           id: 'unitPln',
@@ -81,13 +87,13 @@ export default {
           title: 'Registrasi Ulang',
           type: 'item',
           url: '/sample-page',
-          icon: icons['ChromeReaderModeOutlinedIcon']
+          icon: icons['FolderSharedIcon']
         },
         {
           id: 'laporan',
           title: 'Laporan',
           type: 'collapse',
-          icon: icons['SecurityOutlinedIcon'],
+          icon: icons['FolderCopyIcon'],
           children: [
             {
               id: 'laporanPesertaPensiun',

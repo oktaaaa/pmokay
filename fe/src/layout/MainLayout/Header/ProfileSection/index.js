@@ -6,9 +6,6 @@ import { Fade, Button, ClickAwayListener, Paper, Popper, List, ListItemText, Lis
 
 // assets
 import PersonTwoToneIcon from '@mui/icons-material/PersonTwoTone';
-import DraftsTwoToneIcon from '@mui/icons-material/DraftsTwoTone';
-import LockOpenTwoTone from '@mui/icons-material/LockOpenTwoTone';
-import SettingsTwoToneIcon from '@mui/icons-material/SettingsTwoTone';
 import AccountCircleTwoToneIcon from '@mui/icons-material/AccountCircleTwoTone';
 import MeetingRoomTwoToneIcon from '@mui/icons-material/MeetingRoomTwoTone';
 
@@ -95,29 +92,12 @@ const ProfileSection = () => {
                     borderRadius: '10px'
                   }}
                 >
-                  <ListItemButton selected={selectedIndex === 0} onClick={(event) => handleListItemClick(event, 0)}>
-                    <ListItemIcon>
-                      <SettingsTwoToneIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="Settings" />
-                  </ListItemButton>
+                  
                   <ListItemButton selected={selectedIndex === 1} onClick={(event) => handleListItemClick(event, 1)}>
                     <ListItemIcon>
                       <PersonTwoToneIcon />
                     </ListItemIcon>
                     <ListItemText primary="Profile" />
-                  </ListItemButton>
-                  <ListItemButton selected={selectedIndex === 2} onClick={(event) => handleListItemClick(event, 2)}>
-                    <ListItemIcon>
-                      <DraftsTwoToneIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="My Messages" />
-                  </ListItemButton>
-                  <ListItemButton selected={selectedIndex === 3} onClick={(event) => handleListItemClick(event, 3)}>
-                    <ListItemIcon>
-                      <LockOpenTwoTone />
-                    </ListItemIcon>
-                    <ListItemText primary="Lock Screen" />
                   </ListItemButton>
                   <ListItemButton selected={selectedIndex === 4}>
                     <ListItemIcon>
