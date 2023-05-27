@@ -48,9 +48,7 @@ const Register = () => {
                     <Typography color="textPrimary" gutterBottom variant="h2">
                       Register
                     </Typography>
-                    <Typography variant="body2" color="textSecondary">
-                      To keep connected with us.
-                    </Typography>
+                    
                   </Grid>
                   <Grid item>
                     <RouterLink to="/">

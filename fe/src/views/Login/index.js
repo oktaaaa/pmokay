@@ -46,9 +46,7 @@ const Login = () => {
                     <Typography color="textPrimary" gutterBottom variant="h2">
                       Sign in
                     </Typography>
-                    <Typography variant="body2" color="textSecondary">
-                      To keep connected with us.
-                    </Typography>
+                    
                   </Grid>
                   <Grid item>
                     <RouterLink to="/">

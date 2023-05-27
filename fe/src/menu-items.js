@@ -49,6 +49,11 @@ export default {
       ]
     },
     {
+      id: 'firstPage',
+      url: '/ikpln',
+      
+    },
+    {
       id: 'pages',
       title: 'Pages',
       type: 'group',

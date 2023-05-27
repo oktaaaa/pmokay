@@ -1,12 +1,13 @@
 import React, { lazy } from 'react';
 
 // project import
-import MainLayout from 'layout/MainLayout';
+// import MainLayout from 'layout/MainLayout';
 import Loadable from 'component/Loadable';
 import PesertaPensiun from 'views/PesertaPensiun/PesertaPensiun';
 import UnitPln from 'views/UnitPln/UnitPln';
 import CreateUnitPln from 'views/UnitPln/CreateUnitPln';
 import Tanggungan from 'views/Tanggungan/Tanggungan';
+import FirstPageIkpln from 'views/FirstPageIkpln/FirstPageIkpln';
 
 const DashboardDefault = Loadable(lazy(() => import('../views/Dashboard')));
 
@@ -19,12 +20,9 @@ const SamplePage = Loadable(lazy(() => import('../views/SamplePage')));
 
 const MainRoutes = {
   path: '/',
-  element: <MainLayout />,
+  element: <FirstPageIkpln />,
   children: [
-    {
-      path: '/',
-      element: <DashboardDefault />
-    },
+   
     {
       path: '/dashboard/default',
       element: <DashboardDefault />

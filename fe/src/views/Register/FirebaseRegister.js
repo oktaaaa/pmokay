@@ -1,23 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 // material-ui
 import { useTheme } from '@mui/material/styles';
 import {
   Box,
   Button,
-  Divider,
   FormHelperText,
-  Grid,
   TextField,
-  Typography,
   FormControl,
   InputLabel,
   OutlinedInput,
   InputAdornment,
   IconButton,
-  FormControlLabel,
-  Checkbox
 } from '@mui/material';
 
 // third party
@@ -27,14 +21,12 @@ import { Formik } from 'formik';
 // assets
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import Google from 'assets/images/social-google.svg';
 
 // ==============================|| FIREBASE REGISTER ||============================== //
 
 const FirebaseRegister = ({ ...rest }) => {
   const theme = useTheme();
   const [showPassword, setShowPassword] = React.useState(false);
-  const [checked, setChecked] = React.useState(false);
 
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
@@ -46,47 +38,6 @@ const FirebaseRegister = ({ ...rest }) => {
 
   return (
     <>
-      <Grid container justifyContent="center">
-        <Grid item xs={12}>
-          <Button
-            fullWidth={true}
-            sx={{
-              fontSize: { md: '1rem', xs: '0.875rem' },
-              fontWeight: 500,
-              backgroundColor: theme.palette.grey[50],
-              color: theme.palette.grey[600],
-              textTransform: 'capitalize',
-              '&:hover': {
-                backgroundColor: theme.palette.grey[100]
-              }
-            }}
-            size="large"
-            variant="contained"
-          >
-            <img
-              src={Google}
-              alt="google"
-              width="20px"
-              style={{
-                marginRight: '16px',
-                '@media (maxWidth:900px)': {
-                  marginRight: '8px'
-                }
-              }}
-            />{' '}
-            Register with Google
-          </Button>
-        </Grid>
-      </Grid>
-
-      <Box alignItems="center" display="flex" mt={2}>
-        <Divider sx={{ flexGrow: 1 }} orientation="horizontal" />
-        <Typography color="textSecondary" variant="h5" sx={{ m: theme.spacing(2) }}>
-          OR
-        </Typography>
-        <Divider sx={{ flexGrow: 1 }} orientation="horizontal" />
-      </Box>
-
       <Formik
         initialValues={{
           email: 'admin@phoenixcoded.net',
@@ -156,19 +107,6 @@ const FirebaseRegister = ({ ...rest }) => {
                 <FormHelperText error>{errors.submit}</FormHelperText>
               </Box>
             )}
-            <Box my={0}>
-              <FormControlLabel
-                control={
-                  <Checkbox checked={checked} onChange={(event) => setChecked(event.target.checked)} name="checked" color="primary" />
-                }
-                label={
-                  <>
-                    I have read the &nbsp;
-                    <Link to="#">Terms and Conditions </Link>
-                  </>
-                }
-              />
-            </Box>
             <Box mt={2}>
               <Button color="primary" disabled={isSubmitting} fullWidth size="large" type="submit" variant="contained">
                 Register
