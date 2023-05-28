@@ -8,7 +8,7 @@ import UnitPln from 'views/UnitPln/UnitPln';
 import CreateUnitPln from 'views/UnitPln/CreateUnitPln';
 import Tanggungan from 'views/Tanggungan/Tanggungan';
 import CreatePesertaPensiun from 'views/PesertaPensiun/CreatePesertaPensiun';
-// import UpdatePesertaPensiun from 'views/PesertaPensiun/UpdatePesertaPensiun';
+import UpdatePesertaPensiun from 'views/PesertaPensiun/UpdatePesertaPensiun';
 import UpdateUnitPln from 'views/UnitPln/UpdateUnitPln';
 // import FirstPageIkpln from 'views/FirstPageIkpln/FirstPageIkpln';
 
@@ -30,6 +30,7 @@ const MainRoutes = {
     // pesertapensiun
     {path: '/pesertapensiun', element: <PesertaPensiun/>},
     { path: '/pesertapensiun/create', element: <CreatePesertaPensiun/>},
+    { path: '/pesertapensiun/update/:id', element: <UpdatePesertaPensiun/>},
     // unitpln
     { path: '/unitpln', element: <UnitPln/>},
     {path: '/unitpln/create', element: <CreateUnitPln/>},
