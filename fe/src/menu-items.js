@@ -45,13 +45,15 @@ export default {
           type: 'item',
           icon: icons['HomeOutlinedIcon'],
           url: '/dashboard/default'
+        },
+        {
+          id: 'firstpage',
+          title: 'firstpage',
+          type: 'item',
+          icon: icons['HomeOutlinedIcon'],
+          url: '/ikpln'
         }
       ]
-    },
-    {
-      id: 'firstPage',
-      url: '/ikpln',
-      
     },
     {
       id: 'pages',
