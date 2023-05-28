@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { Card, CardHeader, CardContent, Divider, Grid, Typography } from '@mui/material';
+import { Card, CardContent, Divider, Grid, Typography } from '@mui/material';
 import Swal from 'sweetalert2';
 
 // project import
@@ -50,31 +50,24 @@ export default function UnitPln() {
 
   return (
     <>
-      <Breadcrumb title="Sample Page">
+      <Breadcrumb title="Unit PLN">
         <Typography component={Link} to="/" variant="subtitle2" color="inherit" className="link-breadcrumb">
           Home
         </Typography>
         <Typography variant="subtitle2" color="primary" className="link-breadcrumb">
-          Sample Page
+          Unit PLN
         </Typography>
       </Breadcrumb>
       <Grid container spacing={gridSpacing}>
         <Grid item>
           <Card>
-            <CardHeader
-              title={
-                <Typography component="div" className="card-header">
-                  Sample Page
-                </Typography>
-              }
-            />
             <Divider />
             <CardContent>
               <div className="row flex-nowrap">
                 <input
                   type=""
                   className="form-control mb-3 border border-dark"
-                  placeholder="Ketik nama peserta"
+                  placeholder="Ketik Nama Unit"
                   // value={kode_unit}
                   onChange={(e) => setQuery(e.target.value)}
                 />
@@ -82,16 +75,16 @@ export default function UnitPln() {
 
               <div className="row">
                 <Link to={`create`} className="btn btn-primary mb-3">
-                  Tambah Baru
+                  Tambah Unit PLN
                 </Link>
 
                 <table className="table is-striped table-bordered border-dark">
                   <thead>
                     <tr className="text-center">
-                      <th>Id</th>
+                      <th>No</th>
                       <th>Kode Unit PLN</th>
                       <th>Nama Unit</th>
-                      <th>Actions</th>
+                      <th>Aksi</th>
                     </tr>
                   </thead>
 

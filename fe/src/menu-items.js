@@ -45,13 +45,6 @@ export default {
           type: 'item',
           icon: icons['HomeOutlinedIcon'],
           url: '/dashboard/default'
-        },
-        {
-          id: 'firstpage',
-          title: 'firstpage',
-          type: 'item',
-          icon: icons['HomeOutlinedIcon'],
-          url: '/ikpln'
         }
       ]
     },
@@ -150,87 +143,5 @@ export default {
         }
       ]
     },
-    {
-      id: 'utils',
-      title: 'Utils',
-      type: 'group',
-      icon: icons['AccountTreeOutlinedIcon'],
-      children: [
-        {
-          id: 'util-icons',
-          title: 'Icons',
-          type: 'item',
-          url: 'https://mui.com/material-ui/material-icons/',
-          icon: icons['AppsOutlinedIcon'],
-          external: true,
-          target: true
-        },
-        {
-          id: 'util-typography',
-          title: 'Typography',
-          type: 'item',
-          url: '/utils/util-typography',
-          icon: icons['FormatColorTextOutlinedIcon']
-        }
-      ]
-    },
-    {
-      id: 'support',
-      title: 'Support',
-      type: 'group',
-      icon: icons['ContactSupportOutlinedIcon'],
-      children: [
-        {
-          id: 'disabled-menu',
-          title: 'Disabled Menu',
-          type: 'item',
-          url: '#',
-          icon: icons['BlockOutlinedIcon'],
-          disabled: true
-        },
-        {
-          id: 'documentation',
-          title: 'Documentation',
-          type: 'item',
-          url: 'https://codedthemes.gitbook.io/materially-react-material-documentation/',
-          icon: icons['HelpOutlineOutlinedIcon'],
-          chip: {
-            label: 'Help?',
-            color: 'primary'
-          },
-          external: true,
-          target: true
-        }
-      ]
-    },
-    {
-      id: 'support',
-      title: 'TEST',
-      type: 'group',
-      icon: icons['ContactSupportOutlinedIcon'],
-      children: [
-        {
-          id: 'disabled-menu',
-          title: 'Disabled Menu',
-          type: 'item',
-          url: '#',
-          icon: icons['BlockOutlinedIcon'],
-          disabled: true
-        },
-        {
-          id: 'documentation',
-          title: 'Documentation',
-          type: 'item',
-          url: 'https://codedthemes.gitbook.io/materially-react-material-documentation/',
-          icon: icons['HelpOutlineOutlinedIcon'],
-          chip: {
-            label: 'Help?',
-            color: 'primary'
-          },
-          external: true,
-          target: true
-        }
-      ]
-    }
   ]
 };
