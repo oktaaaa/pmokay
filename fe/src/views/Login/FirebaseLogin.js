@@ -1,5 +1,6 @@
-import React from 'react';
-
+import React, { useState } from "react";
+import { useNavigate } from 'react-router';
+import axios from "axios";
 // material-ui
 import { useTheme } from '@mui/material/styles';
 import {
@@ -30,6 +31,23 @@ const FirebaseLogin = ({ ...rest }) => {
   const theme = useTheme();
   const [showPassword, setShowPassword] = React.useState(false);
 
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  const logInButton = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.post("http://localhost:3000/api/users/login", {
+        email,
+        password,
+      });
+      navigate('/dashboard/default')
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
   };
@@ -51,19 +69,19 @@ const FirebaseLogin = ({ ...rest }) => {
           password: Yup.string().max(255).required('Password is required')
         })}
       >
-        {({ errors, handleBlur, handleChange, handleSubmit, isSubmitting, touched, values }) => (
-          <form noValidate onSubmit={handleSubmit} {...rest}>
+        {({ errors, handleBlur, isSubmitting, touched}) => (
+          <form noValidate onSubmit={logInButton} {...rest}>
             <TextField
               error={Boolean(touched.email && errors.email)}
               fullWidth
               helperText={touched.email && errors.email}
-              label="Email Address / Username"
+              label="Email Address"
               margin="normal"
               name="email"
               onBlur={handleBlur}
-              onChange={handleChange}
+              onChange= {(e) => setEmail(e.target.value)} 
               type="email"
-              value={values.email}
+              value={email}
               variant="outlined"
             />
 
@@ -72,10 +90,10 @@ const FirebaseLogin = ({ ...rest }) => {
               <OutlinedInput
                 id="outlined-adornment-password"
                 type={showPassword ? 'text' : 'password'}
-                value={values.password}
+                value={password}
                 name="password"
                 onBlur={handleBlur}
-                onChange={handleChange}
+                onChange= {(e) => setPassword(e.target.value)}
                 label="Password"
                 endAdornment={
                   <InputAdornment position="end">

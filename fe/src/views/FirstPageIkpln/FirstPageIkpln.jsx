@@ -1,5 +1,6 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
+// const AuthLogin = Loadable(lazy(() => import('../views/Login')));
 // ==============================|| PROFILE SECTION ||============================== //
 
 const FirstPageIkpln = () => {
@@ -12,7 +13,7 @@ const FirstPageIkpln = () => {
 
         <div className="col-lg-4 col-md-4 col-sm-4 col-4 mx-auto p-3 text-end">
           <button className="btn btn-light">
-            {/* <Link to={`/login`}>Masuk </Link> */}
+            <Link to={`/application/login`}>Masuk </Link>
           </button>
         </div>
       </div>
