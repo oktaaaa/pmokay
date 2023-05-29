@@ -34,14 +34,13 @@ export default {
   items: [
     {
       id: 'navigation',
-      title: 'Materially',
-      caption: 'Dashboard',
+      caption: 'Beranda',
       type: 'group',
       icon: icons['NavigationOutlinedIcon'],
       children: [
         {
-          id: 'dashboard',
-          title: 'Dashboard',
+          id: 'beranda',
+          title: 'Beranda',
           type: 'item',
           icon: icons['HomeOutlinedIcon'],
           url: '/dashboard/default'
@@ -54,13 +53,13 @@ export default {
       type: 'group',
       icon: icons['NavigationOutlinedIcon'],
       children: [
-        {
-          id: 'sample-page',
-          title: 'Sample Page',
-          type: 'item',
-          url: '/sample-page',
-          icon: icons['ChromeReaderModeOutlinedIcon']
-        },
+        // {
+        //   id: 'sample-page',
+        //   title: 'Sample Page',
+        //   type: 'item',
+        //   url: '/sample-page',
+        //   icon: icons['ChromeReaderModeOutlinedIcon']
+        // },
         {
           id: 'pesertaPensiun',
           title: 'Peserta Pensiun',
@@ -119,28 +118,28 @@ export default {
             }
           ]
         },
-        {
-          id: 'auth',
-          title: 'Authentication',
-          type: 'collapse',
-          icon: icons['SecurityOutlinedIcon'],
-          children: [
-            {
-              id: 'login-1',
-              title: 'Login',
-              type: 'item',
-              url: '/application/login',
-              target: true
-            },
-            {
-              id: 'register',
-              title: 'Register',
-              type: 'item',
-              url: '/application/register',
-              target: true
-            }
-          ]
-        }
+        // {
+        //   id: 'auth',
+        //   title: 'Authentication',
+        //   type: 'collapse',
+        //   icon: icons['SecurityOutlinedIcon'],
+        //   children: [
+        //     {
+        //       id: 'login-1',
+        //       title: 'Login',
+        //       type: 'item',
+        //       url: '/application/login',
+        //       target: true
+        //     },
+        //     {
+        //       id: 'register',
+        //       title: 'Register',
+        //       type: 'item',
+        //       url: '/application/register',
+        //       target: true
+        //     }
+        //   ]
+        // }
       ]
     },
   ]

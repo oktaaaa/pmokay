@@ -30,12 +30,12 @@ export default function PesertaPensiun() {
 
   return (
     <>
-      <Breadcrumb title="Sample Page">
+      <Breadcrumb title="Peserta Pensiun">
         <Typography component={Link} to="/" variant="subtitle2" color="inherit" className="link-breadcrumb">
           Home
         </Typography>
         <Typography variant="subtitle2" color="primary" className="link-breadcrumb">
-          Sample Page
+          Peserta Pensiun
         </Typography>
       </Breadcrumb>
       <Grid container spacing={gridSpacing}>
@@ -44,7 +44,7 @@ export default function PesertaPensiun() {
             <CardHeader
               title={
                 <Typography component="div" className="card-header">
-                  Sample Page
+                  <h2>Peserta Pensiun</h2>
                 </Typography>
               }
             />
@@ -54,7 +54,7 @@ export default function PesertaPensiun() {
                 <input
                   type=""
                   className="form-control mb-3 border border-dark"
-                  placeholder="Ketik nama peserta"
+                  placeholder="Cari nama peserta"
                   // value={kode_unit}
                   onChange={(e) => setQuery(e.target.value)}
                 />
@@ -62,7 +62,7 @@ export default function PesertaPensiun() {
 
               <div className="row col-md-2">
                 <Link to={`create`} className="btn btn-primary ">
-                  Tambah Baru
+                  Tambah Peserta Pensiun
                 </Link>
               </div>
               <table className="table is-striped table-bordered table-hover mt-3">

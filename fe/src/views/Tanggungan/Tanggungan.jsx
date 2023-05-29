@@ -52,12 +52,11 @@ export default function Tanggungan() {
             <Divider />
             <CardContent>
               <div className="justify-center">
-                <Typography variant="body1">Cari Tanggungan</Typography>
                 <div className="column col-md-4">
                   <input
                     type=""
                     className="form-control mb-3 border border-dark "
-                    placeholder="Ketik nama peserta"
+                    placeholder="Cari nama peserta/tanggungan"
                     onChange={(e) => setQuery(e.target.value)}
                   />
 

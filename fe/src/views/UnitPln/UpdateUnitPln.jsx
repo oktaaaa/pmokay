@@ -39,12 +39,12 @@ export default function UpdateUnitPln() {
 
   return (
     <>
-      <Breadcrumb title="Tambah Unit PLN">
+      <Breadcrumb title="Ubah Unit PLN">
         <Typography component={Link} to="/" variant="subtitle2" color="inherit" className="link-breadcrumb">
           Home
         </Typography>
         <Typography variant="subtitle2" color="primary" className="link-breadcrumb">
-          Tambah Unit PLN
+          Unit PLN
         </Typography>
       </Breadcrumb>
       <Grid container spacing={gridSpacing}>
