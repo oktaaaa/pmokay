@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 // project import
 import Breadcrumb from 'component/Breadcrumb';
 import { gridSpacing } from 'config.js';
-const LaporanPesertaAktif = () => {
+const LaporanUnit = () => {
   return (
     <>
       <Breadcrumb>
@@ -22,7 +22,7 @@ const LaporanPesertaAktif = () => {
             <CardHeader
               title={
                 <Typography component="div" className="card-header">
-                  <h4>Laporan Peserta Pensiun Aktif</h4>
+                  <h4> Laporan Unit PLN </h4>
                 </Typography>
               }
             />
@@ -33,4 +33,4 @@ const LaporanPesertaAktif = () => {
   );
 };
 
-export default LaporanPesertaAktif;
+export default LaporanUnit;

@@ -11,9 +11,14 @@ import CreatePesertaPensiun from 'views/PesertaPensiun/CreatePesertaPensiun';
 import UpdatePesertaPensiun from 'views/PesertaPensiun/UpdatePesertaPensiun';
 import UpdateUnitPln from 'views/UnitPln/UpdateUnitPln';
 import UpdateTanggungan from 'views/Tanggungan/UpdateTanggungan';
-// import FirstPageIkpln from 'views/FirstPageIkpln/FirstPageIkpln';
-
+import RegistrasiUlang from 'views/RegistrasiUlang/RegistrasiUlang';
+import CreateRegistUlang from 'views/RegistrasiUlang/CreateRegistUlang';
 import CreateTanggungan from 'views/Tanggungan/CreateTanggungan';
+import LaporanPesertaAktif from 'views/Laporan/LaporanPesertaAktif';
+import LaporanPesertaPensiun from 'views/Laporan/LaporanPesertaPensiun';
+import LaporanPesertaNonAktif from 'views/Laporan/LaporanPesertaNonAktif';
+import LaporanUnit from 'views/Laporan/LaporanUnit';
+
 
 const DashboardDefault = Loadable(lazy(() => import('../views/Dashboard')));
 
@@ -34,6 +39,7 @@ const MainRoutes = {
     {path: '/pesertapensiun', element: <PesertaPensiun/>},
     { path: '/pesertapensiun/create', element: <CreatePesertaPensiun/>},
     { path: '/pesertapensiun/update/:id', element: <UpdatePesertaPensiun/>},
+
     // unitpln
     { path: '/unitpln', element: <UnitPln/>},
     {path: '/unitpln/create', element: <CreateUnitPln/>},
@@ -42,7 +48,17 @@ const MainRoutes = {
     // tanggungan
     {path: '/tanggungan', element: <Tanggungan/>},
     { path: '/tanggungan/create', element: <CreateTanggungan/>},
-    { path: '/tanggungan/update/:id', element: <UpdateTanggungan/>}
+    { path: '/tanggungan/update/:id', element: <UpdateTanggungan/>},
+
+    // registrasi ulang
+    { path: '/registrasiulang', element: <RegistrasiUlang/>},
+    { path: '/registrasiulang/create', element: <CreateRegistUlang/>},
+
+    // laporan
+    { path: '/laporanpesertaaktif', element: <LaporanPesertaAktif/>},
+    { path: '/laporanpesertanonaktif', element: <LaporanPesertaNonAktif/>},
+    { path: '/laporanpesertapensiun', element: <LaporanPesertaPensiun/>},
+    { path: '/laporanunit', element: <LaporanUnit/>},
   ]
 };
 

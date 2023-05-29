@@ -85,7 +85,7 @@ export default {
           id: 'registrasiUlang',
           title: 'Registrasi Ulang',
           type: 'item',
-          url: '/sample-page',
+          url: '/registrasiulang',
           icon: icons['FolderSharedIcon']
         },
         {
@@ -98,23 +98,29 @@ export default {
               id: 'laporanPesertaPensiun',
               title: 'Laporan Peserta Pensiun',
               type: 'item',
-              url: '/application/login',
-              target: true
+              url: '/laporanpesertapensiun',
+             
             },
-
+            {
+              id: 'laporanPesertaAktif',
+              title: 'Laporan Peserta Pensiun Aktif',
+              type: 'item',
+              url: '/laporanpesertaaktif',
+              
+            },
             {
               id: 'laporanPesertaNonAktif',
               title: 'Laporan Peserta Pensiun Non-Aktif',
               type: 'item',
-              url: '/application/register',
-              target: true
+              url: '/laporanpesertanonaktif',
+         
             },
             {
               id: 'laporanPesertaPerUnit',
               title: 'Laporan Peserta Per-Unit',
               type: 'item',
-              url: '/application/register',
-              target: true
+              url: '/laporanunit',
+          
             }
           ]
         },
