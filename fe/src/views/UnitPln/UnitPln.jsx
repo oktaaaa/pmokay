@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { Card, CardContent, Divider, Grid, Typography } from '@mui/material';
+import { Card, CardHeader, CardContent, Divider, Grid, Typography } from '@mui/material';
 import Swal from 'sweetalert2';
 
 // project import
@@ -50,7 +50,7 @@ export default function UnitPln() {
 
   return (
     <>
-      <Breadcrumb title="Unit PLN">
+      <Breadcrumb>
         <Typography component={Link} to="/" variant="subtitle2" color="inherit" className="link-breadcrumb">
           Home
         </Typography>
@@ -61,50 +61,53 @@ export default function UnitPln() {
       <Grid container spacing={gridSpacing}>
         <Grid item>
           <Card>
+            <CardHeader
+              title={
+                <Typography component="div" className="card-header">
+                  <h4> Unit PLN</h4>
+                </Typography>
+              }
+            />
             <Divider />
             <CardContent>
-              <div className="row flex-nowrap">
+              <div>
                 <input
                   type=""
-                  className="form-control mb-3 border border-dark"
-                  placeholder="Ketik Nama Unit"
+                  className="form-control mb-3 border border-dark "
+                  placeholder="Cari Unit PLN"
                   // value={kode_unit}
                   onChange={(e) => setQuery(e.target.value)}
                 />
-              </div>
-
-              <div className="row">
-                <Link to={`create`} className="btn btn-primary mb-3">
-                  Tambah Unit PLN
+                <Link to={`create`} className="btn btn-primary">
+                  + Tambah Unit PLN
                 </Link>
-
-                <table className="table is-striped table-bordered border-dark">
-                  <thead>
-                    <tr className="text-center">
-                      <th>No</th>
-                      <th>Kode Unit PLN</th>
-                      <th>Nama Unit</th>
-                      <th>Aksi</th>
-                    </tr>
-                  </thead>
-
-                  <tbody>
-                    {units
-                      .filter((unit) => unit.nama_unit.toLowerCase().includes(query))
-                      .map((unit, index) => (
-                        <tr key={unit._id}>
-                          <td className="text-center justify-content-center">{index + 1}</td>
-                          <td>{unit.kode_unit}</td>
-                          <td>{unit.nama_unit}</td>
-                          <td className="justify-content-center">
-                            <Link className="btn btn-primary mx-4 fa-regular fa-pen-to-square" to={`/unitpln/update/${unit._id}`}></Link>
-                            <button onClick={() => deleteUnit(unit._id)} className="btn btn-danger fa-solid fa-trash-can"></button>
-                          </td>
-                        </tr>
-                      ))}
-                  </tbody>
-                </table>
               </div>
+              <table className="table is-striped border border-dark table-bordered table-hover mt-3">
+                <thead>
+                  <tr className="text-center">
+                    <th>No</th>
+                    <th>Kode Unit PLN</th>
+                    <th>Nama Unit</th>
+                    <th>Aksi</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  {units
+                    .filter((unit) => unit.nama_unit.toLowerCase().includes(query))
+                    .map((unit, index) => (
+                      <tr key={unit._id}>
+                        <td className="text-center justify-content-center">{index + 1}</td>
+                        <td>{unit.kode_unit}</td>
+                        <td>{unit.nama_unit}</td>
+                        <td className="justify-content-center">
+                          <Link className="btn btn-primary mx-4 fa-regular fa-pen-to-square" to={`/unitpln/update/${unit._id}`}></Link>
+                          <button onClick={() => deleteUnit(unit._id)} className="btn btn-danger fa-solid fa-trash-can"></button>
+                        </td>
+                      </tr>
+                    ))}
+                </tbody>
+              </table>
             </CardContent>
           </Card>
         </Grid>

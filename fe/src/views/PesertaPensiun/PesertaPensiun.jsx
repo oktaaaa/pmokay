@@ -30,7 +30,7 @@ export default function PesertaPensiun() {
 
   return (
     <>
-      <Breadcrumb title="Peserta Pensiun">
+      <Breadcrumb>
         <Typography component={Link} to="/" variant="subtitle2" color="inherit" className="link-breadcrumb">
           Home
         </Typography>
@@ -44,7 +44,7 @@ export default function PesertaPensiun() {
             <CardHeader
               title={
                 <Typography component="div" className="card-header">
-                  <h2>Peserta Pensiun</h2>
+                  <h4>Peserta Pensiun</h4>
                 </Typography>
               }
             />
@@ -60,12 +60,12 @@ export default function PesertaPensiun() {
                 />
               </div>
 
-              <div className="row col-md-2">
+              <div className="row col-sm-3">
                 <Link to={`create`} className="btn btn-primary ">
-                  Tambah Peserta Pensiun
+                  + Tambah Peserta Pensiun
                 </Link>
               </div>
-              <table className="table is-striped table-bordered table-hover mt-3">
+              <table className="table is-striped border border-dark table-bordered table-hover mt-3">
                 <thead>
                   <tr>
                     <th>No</th>

@@ -80,7 +80,7 @@ function UpdatePesertaPensiun() {
             <CardHeader
               title={
                 <Typography component="div" className="card-header">
-                  <h2>Ubah Peserta Pensiun</h2>
+                  <h4>Ubah Peserta Pensiun</h4>
                 </Typography>
               }
             />

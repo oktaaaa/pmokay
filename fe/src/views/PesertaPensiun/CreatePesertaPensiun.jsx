@@ -58,7 +58,7 @@ function CreatePesertaPensiun() {
             <CardHeader
               title={
                 <Typography component="div" className="card-header">
-                  <h2>Tambah Peserta Pensiun</h2>
+                  <h5>Tambah Peserta Pensiun</h5>
                 </Typography>
               }
             />

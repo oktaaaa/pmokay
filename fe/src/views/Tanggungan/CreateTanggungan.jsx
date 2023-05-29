@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { Card, CardContent, Divider, Grid, Typography } from '@mui/material';
+import { Card, CardHeader, CardContent, Divider, Grid, Typography } from '@mui/material';
 
 // project import
 import Breadcrumb from 'component/Breadcrumb';
@@ -62,134 +62,131 @@ function CreateTanggungan() {
   };
   return (
     <>
-      <Breadcrumb title="Tambah Unit PLN">
+      <Breadcrumb title="Tanggungan">
         <Typography component={Link} to="/" variant="subtitle2" color="inherit" className="link-breadcrumb">
           Home
         </Typography>
         <Typography variant="subtitle2" color="primary" className="link-breadcrumb">
-          Tambah Unit PLN
+          Tanggungan
         </Typography>
       </Breadcrumb>
       <Grid container spacing={gridSpacing}>
         <Grid item>
           <Card>
+            <CardHeader
+              title={
+                <Typography component="div" className="card-header">
+                  <h5>Tambah Tanggungan</h5>
+                </Typography>
+              }
+            />
             <Divider />
             <CardContent>
-              <Breadcrumb title="Tambah Unit PLN">
-                <Typography component={Link} to="/" variant="subtitle2" color="inherit" className="link-breadcrumb">
-                  Home
-                </Typography>
-                <Typography variant="subtitle2" color="primary" className="link-breadcrumb">
-                  Tambah Unit PLN
-                </Typography>
-              </Breadcrumb>
-              <Grid container spacing={gridSpacing}>
-                <Grid item>
-                  <Card>
-                    <Divider />
-                    <CardContent>
-                      <form onSubmit={createTanggungan}>
-                        <h4 className="mb-2">Cari NIP/Nama Pegawai</h4>
+              <form onSubmit={createTanggungan}>
+                <h6 className="mb-2">Cari NIP/Nama Pegawai</h6>
 
-                        <div className="row">
-                          <div className="form-group col-lg-6 mb-2">
-                            <label htmlFor="inputNIP">
-                              NIP
-                              {/* <p>Nip adalah {nip}</p> */}
-                              <input
-                                type="text"
-                                className="form-control"
-                                id="nip"
-                                value={nipen}
-                                onChange={(e) => setNip(e.target.value)}
-                                onKeyDown={keyEnterHandler}
-                                placeholder="No Induk Pensiun"
-                              />
-                            </label>
-                          </div>
+                <div className="form-row">
+                  <div className="form-group col-lg-12 mb-2">
+                    <div className="row">
+                      <div className="form-group col-md-12 mb-2">
+                        <label htmlFor="tgl-pensiun" className="fw-semibold">
+                          NIP
+                        </label>
+                        <input
+                          type="text"
+                          className="form-control border border-dark"
+                          id="nip"
+                          value={nipen}
+                          onChange={(e) => setNip(e.target.value)}
+                          onKeyDown={keyEnterHandler}
+                          placeholder="No Induk Pensiun"
+                        />
+                      </div>
+                    </div>
 
-                          <div className="form-group col-lg-6 mb-2">
-                            <label htmlFor="inputPassword4">
-                              Nama Pegawai
-                              <input
-                                type="text"
-                                className="form-control"
-                                id="namaPegawai"
-                                value={nama_peserta}
-                                onChange={(e) => setNamaPeserta(e.target.value)}
-                              />
-                            </label>
-                          </div>
-                        </div>
+                    <div className="row">
+                      <div className="form-group col-md-12 mb-2">
+                        <label htmlFor="nama-pegawai" className="fw-semibold">
+                          Nama Pegawai
+                        </label>
+                        <input
+                          type="text"
+                          className="form-control border border-dark"
+                          id="namaPegawai"
+                          value={nama_peserta}
+                          onChange={(e) => setNamaPeserta(e.target.value)}
+                        />
+                      </div>
+                    </div>
 
-                        <hr />
+                    <hr />
 
-                        <h4>Input Tanggungan</h4>
-                        <div className="form-row">
-                          <div className="form-group col-lg-6 mb-2">
-                            <label htmlFor="Nik">
-                              NIK
-                              <input
-                                type="text"
-                                className="form-control"
-                                id="nik"
-                                value={nik_tanggungan}
-                                onChange={(e) => setNikTanggungan(e.target.value)}
-                                placeholder="No Induk Tanggungan"
-                              />
-                            </label>
-                          </div>
-                          <div className="form-group col-lg-6 mb-2">
-                            <label htmlFor="tgllahir">
-                              Tanggal Lahir
-                              <input
-                                type="date"
-                                className="form-control"
-                                id="tglLahir"
-                                value={tgl_lahir}
-                                onChange={(e) => setTglLahirTanggungan(e.target.value)}
-                                placeholder="Tanggal Lahir"
-                              />
-                            </label>
-                          </div>
-                        </div>
+                    <h6>Input Tanggungan</h6>
+                    <div className="form-row">
+                      <div className="form-group col-lg-12 mb-2">
+                        <label htmlFor="Nik" className="fw-semibold">
+                          NIK
+                        </label>
+                        <input
+                          type="text"
+                          className="form-control border border-dark"
+                          id="nik"
+                          value={nik_tanggungan}
+                          onChange={(e) => setNikTanggungan(e.target.value)}
+                          placeholder="No Induk Tanggungan"
+                        />
+                      </div>
+                      <div className="form-group col-lg-12 mb-2">
+                        <label htmlFor="tgllahir" className="fw-semibold">
+                          Tanggal Lahir
+                        </label>
+                        <input
+                          type="date"
+                          className="form-control border border-dark"
+                          id="tglLahir"
+                          value={tgl_lahir}
+                          onChange={(e) => setTglLahirTanggungan(e.target.value)}
+                          placeholder="Tanggal Lahir"
+                        />
+                      </div>
+                    </div>
 
-                        <div className="form-row">
-                          <div className="form-group col-lg-6 mb-2">
-                            <label>
-                              Nama Lengkap
-                              <input
-                                type="text"
-                                className="form-control"
-                                id="namaLengkap"
-                                value={nama_tanggungan}
-                                onChange={(e) => setNamaTanggungan(e.target.value)}
-                              />
-                            </label>
-                          </div>
-                          <div className="form-group col-lg-6 mb-2">
-                            <label htmlFor="relasi">Relasi</label>
+                    <div className="form-row">
+                      <div className="form-group col-lg-12 mb-2">
+                        <label htmlFor="namaLengkap" className="fw-semibold">
+                          Nama Lengkap{' '}
+                        </label>
+                        <input
+                          type="text"
+                          className="form-control border border-dark"
+                          id="namaLengkap"
+                          value={nama_tanggungan}
+                          onChange={(e) => setNamaTanggungan(e.target.value)}
+                        />
+                      </div>
+                      <div className="form-group col-lg-12 mb-2">
+                        <label htmlFor="relasi" className="fw-semibold">
+                          Relasi
+                        </label>
 
-                            <select value={relasi} onChange={handleRelations} className="form-select">
-                              {options.map((option) => (
-                                <option key={option.value} value={option.value}>
-                                  {option.label}
-                                </option>
-                              ))}
-                            </select>
-                          </div>
-                        </div>
+                        <select value={relasi} onChange={handleRelations} className="form-select border border-dark">
+                          {options.map((option) => (
+                            <option key={option.value} value={option.value}>
+                              {option.label}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                    </div>
 
-                        <div className="field">
-                          <button type="submit" className="btn btn-primary fw-semibold mt-3">
-                            Simpan
-                          </button>
-                        </div>
-                      </form>
-                    </CardContent>
-                  </Card>
-                </Grid>
-              </Grid>
+                    <div className="field">
+                      <button type="submit" className="btn btn-primary fw-semibold mt-3">
+                        Simpan
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
             </CardContent>
           </Card>
         </Grid>

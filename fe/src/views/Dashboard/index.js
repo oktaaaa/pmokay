@@ -2,39 +2,39 @@ import React, { useState, useEffect } from 'react';
 import axios from "axios";
 
 // material-ui
-import { useTheme, styled } from '@mui/material/styles';
-import { Grid, Card, CardHeader, CardContent, Typography, Divider, LinearProgress } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
+import { Grid} from '@mui/material';
 
 //project import
-import SalesLineCard from './SalesLineCard';
-import SalesLineCardData from './chart/sale-chart-1';
+// import SalesLineCard from './SalesLineCard';
+// import SalesLineCardData from './chart/sale-chart-1';
 
 
-import RevenuChartCard from './RevenuChartCard';
-import RevenuChartCardData from './chart/revenu-chart';
+// import RevenuChartCard from './RevenuChartCard';
+// import RevenuChartCardData from './chart/revenu-chart';
 import ReportCard from './ReportCard';
 
 import { gridSpacing } from 'config.js';
 
 // assets
-import TrendingDownIcon from '@mui/icons-material/TrendingDown';
+// import TrendingDownIcon from '@mui/icons-material/TrendingDown';
 import Diversity3Icon from '@mui/icons-material/Diversity3';
 import BusinessIcon from '@mui/icons-material/Business';
 import GroupsIcon from '@mui/icons-material/Groups';
 import PersonOffIcon from '@mui/icons-material/PersonOff';
 
 // custom style
-const FlatCardBlock = styled((props) => <Grid item sm={6} xs={12} {...props} />)(({ theme }) => ({
-  padding: '25px 25px',
-  borderLeft: '1px solid' + theme.palette.background.default,
-  [theme.breakpoints.down('sm')]: {
-    borderLeft: 'none',
-    borderBottom: '1px solid' + theme.palette.background.default
-  },
-  [theme.breakpoints.down('md')]: {
-    borderBottom: '1px solid' + theme.palette.background.default
-  }
-}));
+// const FlatCardBlock = styled((props) => <Grid item sm={6} xs={12} {...props} />)(({ theme }) => ({
+//   padding: '25px 25px',
+//   borderLeft: '1px solid' + theme.palette.background.default,
+//   [theme.breakpoints.down('sm')]: {
+//     borderLeft: 'none',
+//     borderBottom: '1px solid' + theme.palette.background.default
+//   },
+//   [theme.breakpoints.down('md')]: {
+//     borderBottom: '1px solid' + theme.palette.background.default
+//   }
+// }));
 
 // ==============================|| DASHBOARD DEFAULT ||============================== //
 
@@ -86,7 +86,7 @@ const Default = () => {
           </Grid>
           <Grid item lg={3} sm={6} xs={12}>
             <ReportCard
-              primary="ok"
+              primary="7"
               secondary="Peserta Aktif"
               color={theme.palette.primary.main}
               iconPrimary={GroupsIcon}
@@ -94,7 +94,7 @@ const Default = () => {
           </Grid>
           <Grid item lg={3} sm={6} xs={12}>
             <ReportCard
-              primary="ok"
+              primary="0"
               secondary="Peserta Non-Aktif"
               color={theme.palette.error.main}
               iconPrimary={PersonOffIcon}
@@ -102,7 +102,7 @@ const Default = () => {
           </Grid>
         </Grid>
       </Grid>
-      <Grid item xs={12}>
+      {/* <Grid item xs={12}>
         <Grid container spacing={gridSpacing}>
           <Grid item lg={8} xs={12}>
             <Grid container spacing={gridSpacing}>
@@ -261,7 +261,7 @@ const Default = () => {
             </Card>
           </Grid>
         </Grid>
-      </Grid>
+      </Grid> */}
     </Grid>
   );
 };

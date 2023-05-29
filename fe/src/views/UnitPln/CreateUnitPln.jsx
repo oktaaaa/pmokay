@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { Card, CardContent, Divider, Grid, Typography } from '@mui/material';
+import { Card, CardHeader, CardContent, Divider, Grid, Typography } from '@mui/material';
 
 // project import
 import Breadcrumb from 'component/Breadcrumb';
@@ -27,17 +27,24 @@ export default function CreateUnitPln() {
 
   return (
     <>
-      <Breadcrumb title="Tambah Unit PLN">
+      <Breadcrumb title="Unit PLN">
         <Typography component={Link} to="/" variant="subtitle2" color="inherit" className="link-breadcrumb">
           Home
         </Typography>
         <Typography variant="subtitle2" color="primary" className="link-breadcrumb">
-          Tambah Unit PLN
+          Unit PLN
         </Typography>
       </Breadcrumb>
       <Grid container spacing={gridSpacing}>
         <Grid item>
           <Card>
+            <CardHeader
+              title={
+                <Typography component="div" className="card-header">
+                  <h5>Tambah Unit PLN</h5>
+                </Typography>
+              }
+            />
             <Divider />
             <CardContent>
               <div className="form-row">

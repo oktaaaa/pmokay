@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { Card, CardContent, Divider, Grid, Typography } from '@mui/material';
+import { Card, CardHeader, CardContent, Divider, Grid, Typography } from '@mui/material';
 
 // project import
 import Breadcrumb from 'component/Breadcrumb';
@@ -39,7 +39,7 @@ export default function UpdateUnitPln() {
 
   return (
     <>
-      <Breadcrumb title="Ubah Unit PLN">
+      <Breadcrumb title="Unit PLN">
         <Typography component={Link} to="/" variant="subtitle2" color="inherit" className="link-breadcrumb">
           Home
         </Typography>
@@ -50,6 +50,13 @@ export default function UpdateUnitPln() {
       <Grid container spacing={gridSpacing}>
         <Grid item>
           <Card>
+            <CardHeader
+              title={
+                <Typography component="div" className="card-header">
+                  <h5>Ubah Unit PLN</h5>
+                </Typography>
+              }
+            />
             <Divider />
             <CardContent>
               <div className="form-row">
