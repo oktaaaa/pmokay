@@ -31,12 +31,12 @@ export default function Tanggungan() {
 
   return (
     <>
-      <Breadcrumb title="Sample Page">
+      <Breadcrumb>
         <Typography component={Link} to="/" variant="subtitle2" color="inherit" className="link-breadcrumb">
           Home
         </Typography>
         <Typography variant="subtitle2" color="primary" className="link-breadcrumb">
-          Sample Page
+          Tanggungan
         </Typography>
       </Breadcrumb>
       <Grid container spacing={gridSpacing}>
@@ -45,14 +45,14 @@ export default function Tanggungan() {
             <CardHeader
               title={
                 <Typography component="div" className="card-header">
-                  Sample Page
+                  <h2>Tanggungan</h2>
                 </Typography>
               }
             />
             <Divider />
             <CardContent>
               <div className="justify-center">
-                <h2>Tanggungan</h2>
+                <Typography variant="body1">Cari Tanggungan</Typography>
                 <div className="column col-md-4">
                   <input
                     type=""

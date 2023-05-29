@@ -13,7 +13,7 @@ import MenuList from './MenuList';
 import { drawerWidth } from 'config.js';
 
 // assets
-import logo from 'assets/images/logo.svg';
+import logo from 'assets/images/logo-ikpln-removebg-preview.png';
 
 // custom style
 const Nav = styled((props) => <nav {...props} />)(({ theme }) => ({
@@ -48,6 +48,7 @@ const Sidebar = ({ drawerOpen, drawerToggle, window }) => {
           <Grid item>
             <img src={logo} alt="Logo" />
           </Grid>
+          
         </Grid>
       </Box>
       <Divider />

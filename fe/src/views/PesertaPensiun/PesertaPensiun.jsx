@@ -60,59 +60,58 @@ export default function PesertaPensiun() {
                 />
               </div>
 
-              <div className="row">
+              <div className="row col-md-2">
                 <Link to={`create`} className="btn btn-primary ">
                   Tambah Baru
                 </Link>
-
-                <table className="table is-striped table-bordered table-hover mt-3">
-                  <thead>
-                    <tr>
-                      <th>No</th>
-                      <th>Tgl Pensiun</th>
-                      <th>NIPEN</th>
-                      <th>Nama Peserta</th>
-                      <th>Tgl Lahir</th>
-                      <th>Alamat</th>
-                      <th>No. HP</th>
-                      <th>E-mail</th>
-                      <th>Nama Bank</th>
-                      <th>No Rekening</th>
-                      <th>Besar MP</th>
-                      <th>Unit PLN</th>
-                      <th>Aksi</th>
-                    </tr>
-                  </thead>
-
-                  <tbody>
-                    {pesertas
-                      .filter((peserta) => peserta.nama_peserta.toLowerCase().includes(query))
-                      .map((peserta, index) => (
-                        <tr key={peserta._id}>
-                          <td>{index + 1}</td>
-                          <td>{peserta.tgl_pensiun}</td>
-                          <td>{peserta.nipen}</td>
-                          <td>{peserta.nama_peserta}</td>
-                          <td>{peserta.tgl_lahir}</td>
-                          <td>{peserta.alamat}</td>
-                          <td>{peserta.nohp}</td>
-                          <td>{peserta.email}</td>
-                          <td>{peserta.nama_bank}</td>
-                          <td>{peserta.no_rek}</td>
-                          <td>{peserta.besar_mp}</td>
-                          <td>{peserta.unit_pln}</td>
-                          <td>
-                            <Link
-                              className="btn btn-primary fa-regular fa-pen-to-square mb-2"
-                              to={`/pesertapensiun/update/${peserta._id}`}
-                            ></Link>
-                            <button onClick={() => deletePeserta(peserta._id)} className="btn btn-danger fa-solid fa-trash-can"></button>
-                          </td>
-                        </tr>
-                      ))}
-                  </tbody>
-                </table>
               </div>
+              <table className="table is-striped table-bordered table-hover mt-3">
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Tgl Pensiun</th>
+                    <th>NIPEN</th>
+                    <th>Nama Peserta</th>
+                    <th>Tgl Lahir</th>
+                    <th>Alamat</th>
+                    <th>No. HP</th>
+                    <th>E-mail</th>
+                    <th>Nama Bank</th>
+                    <th>No Rekening</th>
+                    <th>Besar MP</th>
+                    <th>Unit PLN</th>
+                    <th>Aksi</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  {pesertas
+                    .filter((peserta) => peserta.nama_peserta.toLowerCase().includes(query))
+                    .map((peserta, index) => (
+                      <tr key={peserta._id}>
+                        <td>{index + 1}</td>
+                        <td>{peserta.tgl_pensiun}</td>
+                        <td>{peserta.nipen}</td>
+                        <td>{peserta.nama_peserta}</td>
+                        <td>{peserta.tgl_lahir}</td>
+                        <td>{peserta.alamat}</td>
+                        <td>{peserta.nohp}</td>
+                        <td>{peserta.email}</td>
+                        <td>{peserta.nama_bank}</td>
+                        <td>{peserta.no_rek}</td>
+                        <td>{peserta.besar_mp}</td>
+                        <td>{peserta.unit_pln}</td>
+                        <td>
+                          <Link
+                            className="btn btn-primary fa-regular fa-pen-to-square mb-2"
+                            to={`/pesertapensiun/update/${peserta._id}`}
+                          ></Link>
+                          <button onClick={() => deletePeserta(peserta._id)} className="btn btn-danger fa-solid fa-trash-can"></button>
+                        </td>
+                      </tr>
+                    ))}
+                </tbody>
+              </table>
             </CardContent>
           </Card>
         </Grid>

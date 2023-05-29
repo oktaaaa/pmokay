@@ -10,7 +10,10 @@ import Tanggungan from 'views/Tanggungan/Tanggungan';
 import CreatePesertaPensiun from 'views/PesertaPensiun/CreatePesertaPensiun';
 import UpdatePesertaPensiun from 'views/PesertaPensiun/UpdatePesertaPensiun';
 import UpdateUnitPln from 'views/UnitPln/UpdateUnitPln';
+import UpdateTanggungan from 'views/Tanggungan/UpdateTanggungan';
 // import FirstPageIkpln from 'views/FirstPageIkpln/FirstPageIkpln';
+
+import CreateTanggungan from 'views/Tanggungan/CreateTanggungan';
 
 const DashboardDefault = Loadable(lazy(() => import('../views/Dashboard')));
 
@@ -37,7 +40,9 @@ const MainRoutes = {
     { path: '/unitpln/update/:id', element: <UpdateUnitPln/>},
 
     // tanggungan
-    {path: '/tanggungan', element: <Tanggungan/>}
+    {path: '/tanggungan', element: <Tanggungan/>},
+    { path: '/tanggungan/create', element: <CreateTanggungan/>},
+    { path: '/tanggungan/update/:id', element: <UpdateTanggungan/>}
   ]
 };
 

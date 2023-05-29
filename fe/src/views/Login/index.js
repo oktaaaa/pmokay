@@ -9,7 +9,7 @@ import { Card, CardContent, Typography, Grid } from '@mui/material';
 import AuthLogin from './FirebaseLogin';
 
 // assets
-import Logo from 'assets/images/logo-dark.svg';
+import Logo from 'assets/images/logo-ikpln-removebg-preview.png';
 
 // ==============================|| LOGIN ||============================== //
 

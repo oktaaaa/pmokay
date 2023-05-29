@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Card, CardContent, Divider, Grid, Typography } from '@mui/material';
 
@@ -7,7 +7,8 @@ import { Card, CardContent, Divider, Grid, Typography } from '@mui/material';
 import Breadcrumb from 'component/Breadcrumb';
 import { gridSpacing } from 'config.js';
 
-function CreateTanggungan() {
+const UpdateTanggungan = () => {
+  const { id } = useParams();
   const [nipen, setNip] = useState('');
   const [nama_peserta, setNamaPeserta] = useState('');
 
@@ -18,11 +19,43 @@ function CreateTanggungan() {
 
   const navigate = useNavigate();
 
-  //create tanggungan
-  const createTanggungan = async (e) => {
+  useEffect(() => {
+    getTanggunganById();
+  }, []);
+
+  const getTanggunganById = async () => {
+    const response = await axios.get(`http://localhost:3000/api/tanggungan/${id}`);
+    setNip(response.data.nipen);
+    setNamaPeserta(response.data.nama_peserta);
+    setNikTanggungan(response.data.nik_tanggungan);
+    setTglLahirTanggungan(response.data.tgl_lahir);
+    setNamaTanggungan(response.data.nama_tanggungan);
+    setRelations(response.data.relasi);
+  };
+
+  const keyEnterHandler = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      console.log(nipen);
+      // console.log(getPesertaByNip);
+      getPesertaByNip();
+    }
+  };
+
+  const handleRelations = (e) => {
+    setRelations(e.target.value);
+  };
+  const options = [
+    { value: '', label: 'Pilih relasi dengan peserta pensiun' },
+    { value: 'Suami', label: 'Suami' },
+    { value: 'Istri', label: 'Istri' },
+    { value: 'Anak', label: 'Anak' }
+  ];
+  //   update
+  const updateTanggungan = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:3000/api/tanggungan/create', {
+      await axios.put(`http://localhost:3000/api/tanggungan/update/${id}`, {
         nipen,
         nama_peserta,
         nik_tanggungan,
@@ -35,39 +68,14 @@ function CreateTanggungan() {
       console.log(error);
     }
   };
-  const getPesertaByNip = async () => {
-    const response = await axios.get(`http://localhost:3000/api/peserta/${nipen}`);
-    setNamaPeserta(response.data[0].nama_peserta);
-    // setNip(response.data.nipen);
-  };
-
-  const options = [
-    { value: '', label: 'Pilih relasi dengan peserta pensiun' },
-    { value: 'Suami', label: 'Suami' },
-    { value: 'Istri', label: 'Istri' },
-    { value: 'Anak', label: 'Anak' }
-  ];
-
-  const handleRelations = (e) => {
-    setRelations(e.target.value);
-  };
-
-  const keyEnterHandler = (e) => {
-    if (e.key === 'Enter') {
-      e.preventDefault();
-      console.log(nipen);
-      // console.log(getPesertaByNip);
-      getPesertaByNip();
-    }
-  };
   return (
     <>
-      <Breadcrumb title="Tambah Unit PLN">
+      <Breadcrumb title="Tanggungan">
         <Typography component={Link} to="/" variant="subtitle2" color="inherit" className="link-breadcrumb">
           Home
         </Typography>
         <Typography variant="subtitle2" color="primary" className="link-breadcrumb">
-          Tambah Unit PLN
+          Tanggungan
         </Typography>
       </Breadcrumb>
       <Grid container spacing={gridSpacing}>
@@ -75,20 +83,13 @@ function CreateTanggungan() {
           <Card>
             <Divider />
             <CardContent>
-              <Breadcrumb title="Tambah Unit PLN">
-                <Typography component={Link} to="/" variant="subtitle2" color="inherit" className="link-breadcrumb">
-                  Home
-                </Typography>
-                <Typography variant="subtitle2" color="primary" className="link-breadcrumb">
-                  Tambah Unit PLN
-                </Typography>
-              </Breadcrumb>
+              <Breadcrumb title="Tambah Unit PLN"></Breadcrumb>
               <Grid container spacing={gridSpacing}>
                 <Grid item>
                   <Card>
                     <Divider />
                     <CardContent>
-                      <form onSubmit={createTanggungan}>
+                      <form onSubmit={updateTanggungan}>
                         <h4 className="mb-2">Cari NIP/Nama Pegawai</h4>
 
                         <div className="row">
@@ -196,6 +197,6 @@ function CreateTanggungan() {
       </Grid>
     </>
   );
-}
+};
 
-export default CreateTanggungan;
+export default UpdateTanggungan;

@@ -10,7 +10,7 @@ import FirebaseRegister from './FirebaseRegister';
 import { Link } from 'react-router-dom';
 
 // assets
-import Logo from 'assets/images/logo-dark.svg';
+import Logo from 'assets/images/logo-ikpln-removebg-preview.png';
 
 // ==============================|| REGISTER ||============================== //
 

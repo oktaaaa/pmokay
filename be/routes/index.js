@@ -33,6 +33,8 @@ routes.get('/api/peserta/:nipen', PesertaPensiunController.getNipen)
 routes.post('/api/tanggungan/create', TanggunganController.createTanggungan)
 routes.get('/api/tanggungan', TanggunganController.getTanggungan)
 routes.delete('/api/tanggungan/:id', TanggunganController.deleteTanggungan)
+routes.get('/api/tanggungan/:id', TanggunganController.getTanggunganById)
+routes.put('/api/tanggungan/update/:id', TanggunganController.updateTanggungan)
 
 //registrasi ulang
 routes.post('/api/registrasiulang/create', RegistrasiUlangController.createRegistrasiUlang)

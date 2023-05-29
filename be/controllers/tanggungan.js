@@ -49,6 +49,27 @@ class TanggunganController{
             res.status(500).json(error)
         }
     }
+
+    static async getTanggunganById(req, res){
+        try{
+            const tanggungan = await Tanggungan.findById(req.params.id)
+            res.status(200).json(tanggungan)
+        }catch(error){
+            res.status(500).json(error)
+        }
+    }
+
+    static async updateTanggungan (req, res){
+        try{
+            const tanggungan = await Tanggungan.findByIdAndUpdate(req.params.id, req.body, { new: true })
+            res.status(200).json({
+                message: "Tanggungan Updated",
+                Data: tanggungan
+            })
+        } catch(error){
+            res.status(500).json(error)
+        }
+    }
 }
 
 module.exports = TanggunganController
