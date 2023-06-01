@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
+import axios from 'axios';
 
 // material-ui
 import { useTheme } from '@mui/material/styles';
@@ -27,7 +29,26 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 const FirebaseRegister = ({ ...rest }) => {
   const theme = useTheme();
   const [showPassword, setShowPassword] = React.useState(false);
+  const [nipen, setNipen] = useState("");
+  const [namaLengkap, setNamaLengkap] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
+  const signupButton = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.post("http://localhost:3000/api/users/signup", {
+        nipen,
+        namaLengkap,
+        email,
+        password,
+      });
+      navigate("/login");
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
   };
@@ -39,18 +60,41 @@ const FirebaseRegister = ({ ...rest }) => {
   return (
     <>
       <Formik
-        initialValues={{
-          email: 'admin@phoenixcoded.net',
-          password: 'aA123456',
-          submit: null
-        }}
         validationSchema={Yup.object().shape({
           email: Yup.string().email('Must be a valid email').max(255).required('Email is required'),
           password: Yup.string().max(255).required('Password is required')
         })}
       >
-        {({ errors, handleBlur, handleChange, handleSubmit, isSubmitting, touched, values }) => (
-          <form noValidate onSubmit={handleSubmit} {...rest}>
+        {({ errors, handleBlur, isSubmitting, touched }) => (
+          <form noValidate onSubmit={signupButton} {...rest}>
+            <TextField
+              // error={Boolean(touched.email && errors.email)}
+              fullWidth
+              // helperText={touched.email && errors.email}
+              label="NIPEN (Nomor Induk Pensiunan)"
+              margin="normal"
+              name="nipen"
+              onBlur={handleBlur}
+              onChange={(e) => setNipen(e.target.value)}
+              type="text"
+              value={nipen}
+              variant="outlined"
+            />
+
+            <TextField
+              // error={Boolean(touched.email && errors.email)}
+              fullWidth
+              // helperText={touched.email && errors.email}
+              label="Nama Lengkap"
+              margin="normal"
+              name="namalengkpa"
+              onBlur={handleBlur}
+              onChange={(e) => setNamaLengkap(e.target.value)}
+              type="text"
+              value={namaLengkap}
+              variant="outlined"
+            />
+
             <TextField
               error={Boolean(touched.email && errors.email)}
               fullWidth
@@ -59,9 +103,9 @@ const FirebaseRegister = ({ ...rest }) => {
               margin="normal"
               name="email"
               onBlur={handleBlur}
-              onChange={handleChange}
+              onChange={(e) => setEmail(e.target.value)}
               type="email"
-              value={values.email}
+              value={email}
               variant="outlined"
             />
 
@@ -75,10 +119,10 @@ const FirebaseRegister = ({ ...rest }) => {
               <OutlinedInput
                 id="outlined-adornment-password"
                 type={showPassword ? 'text' : 'password'}
-                value={values.password}
+                value={password}
                 name="password"
                 onBlur={handleBlur}
-                onChange={handleChange}
+                onChange={(e) => setPassword(e.target.value)}
                 label="Password"
                 endAdornment={
                   <InputAdornment position="end">

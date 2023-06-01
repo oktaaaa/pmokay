@@ -21,7 +21,7 @@ class UserController{
             const hashPassword = await bcrypt.hash(password, salt)
 
             //checked if not then create
-            const user = new User({ nipen, namaLengkap, tglLahir, email, password:hashPassword })
+            const user = new User({ nipen, namaLengkap, email, password:hashPassword })
             const usersData = await user.save()
             res.status(200).send({ message: "User created successfully" })
 

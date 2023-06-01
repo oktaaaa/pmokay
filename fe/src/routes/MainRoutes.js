@@ -35,6 +35,7 @@ const MainRoutes = {
     { path: '/dashboard/default', element: <DashboardDefault/>},
     { path: '/sample-page', element: <SamplePage /> },
 
+    // auth
     // pesertapensiun
     {path: '/pesertapensiun', element: <PesertaPensiun/>},
     { path: '/pesertapensiun/create', element: <CreatePesertaPensiun/>},

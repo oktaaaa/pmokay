@@ -9,10 +9,6 @@ const User = mongoose.model("User", {
         type: String, 
         required: true 
     },
-	tglLahir: { 
-        type: Date, 
-        required: true 
-    },
 	email: { 
         type: String, 
         required: true 

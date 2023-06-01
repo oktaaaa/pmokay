@@ -30,7 +30,7 @@ export default function LogIn() {
             overflow: 'visible',
             display: 'flex',
             position: 'relative',
-            '& .MuiCardContent-root': {
+            '& .Mui-root': {
               flexGrow: 1,
               flexBasis: '50%',
               width: '50%'
@@ -45,7 +45,7 @@ export default function LogIn() {
                 <Grid container justifyContent="space-between">
                   <Grid item>
                     <Typography color="textPrimary" gutterBottom variant="h2">
-                      Masuk
+                      Log in
                     </Typography>
                     
                   </Grid>
@@ -62,7 +62,7 @@ export default function LogIn() {
               <Grid container justifyContent="flex-start" sx={{ mt: theme.spacing(2), mb: theme.spacing(1) }}>
                 <Grid item>
                   <Typography variant="subtitle2" color="secondary" sx={{ textDecoration: 'none', pl: 2 }}>
-                    Tidak Ada Akun? <Link to={`/application/signup`}>Daftar</Link>
+                    Tidak Ada Akun? <Link to={`/signup`}>Daftar</Link>
                   </Typography>
                 </Grid>
               </Grid>
