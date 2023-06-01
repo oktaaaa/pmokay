@@ -31,34 +31,34 @@ const MainRoutes = {
   path: '/',
   element: <MainLayout />,
   children: [
-    { path: '/', element: <DashboardDefault/>},
-    { path: '/dashboard/default', element: <DashboardDefault/>},
+    { path: '/', element: <DashboardDefault/>, isMenu: true, isPrivate: false},
+    { path: '/dashboard/default', element: <DashboardDefault/>, isMenu: true, isPrivate: false},
     { path: '/sample-page', element: <SamplePage /> },
 
     // auth
     // pesertapensiun
-    {path: '/pesertapensiun', element: <PesertaPensiun/>},
-    { path: '/pesertapensiun/create', element: <CreatePesertaPensiun/>},
-    { path: '/pesertapensiun/update/:id', element: <UpdatePesertaPensiun/>},
+    {path: '/pesertapensiun', element: <PesertaPensiun/>, isMenu: true, isPrivate: true},
+    { path: '/pesertapensiun/create', element: <CreatePesertaPensiun/> , isMenu: true, isPrivate: true},
+    { path: '/pesertapensiun/update/:id', element: <UpdatePesertaPensiun/>, isMenu: true, isPrivate: true},
 
     // unitpln
-    { path: '/unitpln', element: <UnitPln/>},
-    {path: '/unitpln/create', element: <CreateUnitPln/>},
-    { path: '/unitpln/update/:id', element: <UpdateUnitPln/>},
+    { path: '/unitpln', element: <UnitPln/>, isMenu: true, isPrivate: true},
+    {path: '/unitpln/create', element: <CreateUnitPln/>, isMenu: true, isPrivate: true},
+    { path: '/unitpln/update/:id', element: <UpdateUnitPln/>, isMenu: true, isPrivate: true},
 
     // tanggungan
-    {path: '/tanggungan', element: <Tanggungan/>},
-    { path: '/tanggungan/create', element: <CreateTanggungan/>},
-    { path: '/tanggungan/update/:id', element: <UpdateTanggungan/>},
+    {path: '/tanggungan', element: <Tanggungan/>, isMenu: true, isPrivate: true},
+    { path: '/tanggungan/create', element: <CreateTanggungan/>, isMenu: true, isPrivate: true},
+    { path: '/tanggungan/update/:id', element: <UpdateTanggungan/>, isMenu: true, isPrivate: true},
 
     // registrasi ulang
     { path: '/registrasiulang', element: <RegistrasiUlang/>},
-    { path: '/registrasiulang/create', element: <CreateRegistUlang/>},
+    { path: '/registrasiulang/create', element: <CreateRegistUlang/>, isMenu: true, isPrivate: true},
 
     // laporan
-    { path: '/laporanpesertaaktif', element: <LaporanPesertaAktif/>},
-    { path: '/laporanpesertanonaktif', element: <LaporanPesertaNonAktif/>},
-    { path: '/laporanpesertapensiun', element: <LaporanPesertaPensiun/>},
+    { path: '/laporanpesertaaktif', element: <LaporanPesertaAktif/>, isMenu: true, isPrivate: true},
+    { path: '/laporanpesertanonaktif', element: <LaporanPesertaNonAktif/>, isMenu: true, isPrivate: true},
+    { path: '/laporanpesertapensiun', element: <LaporanPesertaPensiun/>, isMenu: true, isPrivate: true},
     { path: '/laporanunit', element: <LaporanUnit/>},
   ]
 };
