@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router';
 import axios from "axios";
+import Cookies from "universal-cookie"
 // material-ui
 import { useTheme } from '@mui/material/styles';
 import {
@@ -18,7 +19,7 @@ import {
 } from '@mui/material';
 
 //  third party
-import * as Yup from 'yup';
+
 import { Formik } from 'formik';
 
 // assets
@@ -26,26 +27,55 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 // ==============================|| FIREBASE LOGIN ||============================== //
-
+const cookies = new Cookies();
 const FirebaseLogin = ({ ...rest }) => {
   const theme = useTheme();
   const [showPassword, setShowPassword] = React.useState(false);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate();
-
+const navigate = useNavigate();
+  // const [login, setLogin] = useState(false);
+  const [error,setError]=useState();
   const logInButton = async (e) => {
+    // e.preventDefault();
+    // try {
+    //   await axios.post("http://localhost:3000/api/users/login", {
+    //     email,
+    //     password,
+    //   });
+    //  navigate('/dashboard/default')
+      
+    // } catch (error) {
+    //   console.log(error.message);
+    // }
     e.preventDefault();
-    try {
-      await axios.post("http://localhost:3000/api/users/login", {
+
+    const configuration = {
+      method: "post",
+      url: "http://localhost:3000/api/users/login",
+      data: {
         email,
         password,
+      },
+    };
+        
+    axios(configuration)
+      .then((result) => {
+        // set the cookie
+        cookies.set("TOKEN", result.data.token, {
+          path: "/",
+        });
+        // redirect user to the auth page
+        // window.location.href = "/auth";
+        navigate('/dashboard/default')
+
+        // setLogin(true);
+      })
+      .catch((error) => {
+        console.log(error)
+        setError('Invalid Username or Password')
       });
-      navigate('/dashboard/default')
-    } catch (error) {
-      console.log(error.message);
-    }
   };
 
   const handleClickShowPassword = () => {
@@ -59,15 +89,7 @@ const FirebaseLogin = ({ ...rest }) => {
   return (
     <>
       <Formik
-        initialValues={{
-          email: '',
-          password: '',
-          submit: null
-        }}
-        validationSchema={Yup.object().shape({
-          email: Yup.string().email('Must be a valid email').max(255).required('Email is required'),
-          password: Yup.string().max(255).required('Password is required')
-        })}
+       
       >
         {({ errors, handleBlur, isSubmitting, touched}) => (
           <form noValidate onSubmit={logInButton} {...rest}>
@@ -134,6 +156,8 @@ const FirebaseLogin = ({ ...rest }) => {
               <Button color="primary" disabled={isSubmitting} fullWidth size="large" type="submit" variant="contained">
                 Log In
               </Button>
+              
+              {error?<p className="text-danger">{error}</p>:null}  
             </Box>
           </form>
         )}
