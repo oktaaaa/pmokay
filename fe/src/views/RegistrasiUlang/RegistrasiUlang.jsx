@@ -71,7 +71,9 @@ const RegistrasiUlang = () => {
                         <td className="text-center justify-content-center">{index + 1}</td>
                         <td>{registrasi.nipen}</td>
                         <td>{registrasi.nama_peserta}</td>
-                        <td>{registrasi.ktpWajah}</td>
+                        <td>
+                          <img className="img img-fluid" src={`http://localhost:3000/${registrasi.ktpWajah}`} alt="users" />
+                        </td>
                         <td>{registrasi.ktp}</td>
                       </tr>
                     ))}

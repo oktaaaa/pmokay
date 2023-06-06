@@ -10,7 +10,7 @@ import { gridSpacing } from 'config.js';
 
 const CreateRegistUlang = () => {
   const [nipen, setNipen] = useState('');
-  const [nama_peserta, setNamaPeserta] = useState([]);
+  const [nama_peserta, setNamaPeserta] = useState('');
   const [ktpWajah, setFotoKtpWajah] = useState();
   // const [ktp, setKtp] = useState('');
   const navigate = useNavigate();
@@ -24,14 +24,14 @@ const CreateRegistUlang = () => {
     const formData = new FormData();
 
     formData.append('nipen', nipen);
-    formData.append('nama', nama_peserta);
+    formData.append('nama_peserta', nama_peserta);
     formData.append('ktpWajah', ktpWajah);
 
     try {
       await axios.post('http://localhost:3000/api/registrasiulang/create', formData);
       setNipen(nipen);
       setNamaPeserta(nama_peserta);
-      setFotoKtpWajah(ktpWajah)
+      setFotoKtpWajah(ktpWajah);
       navigate('/registrasiulang');
     } catch (error) {
       console.log(error);
