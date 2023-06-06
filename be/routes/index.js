@@ -1,5 +1,17 @@
 const express = require('express')
 const routes = express.Router()
+const multer = require('multer')
+
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, `public/upload/`);
+    },
+    filename: function (req, file, cb) {
+      cb(null, `${Date.now()}-${file.originalname}`);
+    },
+  });
+
+const upload = multer({storage: storage})
 
 const UnitPlnController = require('../controllers/unitPln')
 const PesertaPensiunController = require('../controllers/pesertaPensiun')
@@ -37,7 +49,7 @@ routes.get('/api/tanggungan/:id', TanggunganController.getTanggunganById)
 routes.put('/api/tanggungan/update/:id', TanggunganController.updateTanggungan)
 
 //registrasi ulang
-routes.post('/api/registrasiulang/create', RegistrasiUlangController.createRegistrasiUlang)
+routes.post('/api/registrasiulang/create', upload.single('ktpWajah'), RegistrasiUlangController.createRegistrasiUlang)
 routes.get('/api/registrasiulang', RegistrasiUlangController.getRegistrasiUlang)
 routes.delete('api/registrasiulang/:id', RegistrasiUlangController.deleteRegistrasiUlang)
 module.exports = routes

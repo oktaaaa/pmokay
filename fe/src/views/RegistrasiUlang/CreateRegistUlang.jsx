@@ -6,26 +6,38 @@ import { Card, CardHeader, CardContent, Divider, Grid, Typography } from '@mui/m
 // project import
 import Breadcrumb from 'component/Breadcrumb';
 import { gridSpacing } from 'config.js';
+// import { log } from 'console';
 
 const CreateRegistUlang = () => {
   const [nipen, setNipen] = useState('');
-  const [nama_peserta, setNamaPeserta] = useState('');
-  const [ktpWajah, setFotoKtpWajah] = useState('');
-  const [ktp, setKtp] = useState('');
+  const [nama_peserta, setNamaPeserta] = useState([]);
+  const [ktpWajah, setFotoKtpWajah] = useState();
+  // const [ktp, setKtp] = useState('');
   const navigate = useNavigate();
+
+  const onChangeFile = (e) => {
+    setFotoKtpWajah(e.target.files[0]);
+  };
 
   const createRegistrasiUlang = async (e) => {
     e.preventDefault();
+    const formData = new FormData();
+
+    formData.append('nipen', nipen);
+    formData.append('nama', nama_peserta);
+    formData.append('ktpWajah', ktpWajah);
+
     try {
-      await axios.post('http://localhost:3000/api/registrasiulang/create', {
-        nipen,
-        nama_peserta
-      });
+      await axios.post('http://localhost:3000/api/registrasiulang/create', formData);
+      setNipen(nipen);
+      setNamaPeserta(nama_peserta);
+      setFotoKtpWajah(ktpWajah)
       navigate('/registrasiulang');
     } catch (error) {
       console.log(error);
     }
   };
+
   return (
     <>
       <Breadcrumb title="Registrasi Ulang">
@@ -82,15 +94,16 @@ const CreateRegistUlang = () => {
                           Upload Foto Wajah dan KTP
                         </label>
                         <input
+                          accept=".jpeg, .png, .jpg"
                           type="file"
                           className="form-control border border-dark"
                           id="ktpWajah"
-                          value={ktpWajah}
-                          onChange={(e) => setFotoKtpWajah(e.target.value)}
+                          // value={ktpWajah}
+                          onChange={onChangeFile}
                         />
                       </div>
 
-                      <div className="form-group col-md-12 mb-2">
+                      {/* <div className="form-group col-md-12 mb-2">
                         <label htmlFor="fotoWajahKtp" className="fw-semibold">
                           Upload KTP
                         </label>
@@ -101,7 +114,7 @@ const CreateRegistUlang = () => {
                           value={ktp}
                           onChange={(e) => setKtp(e.target.value)}
                         />
-                      </div>
+                      </div> */}
                     </div>
 
                     <div className="">

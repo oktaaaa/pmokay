@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { Card, CardHeader, CardContent, Divider, Grid, Typography } from '@mui/material';
+import moment from 'moment';
 
 // project import
 import Breadcrumb from 'component/Breadcrumb';
@@ -9,6 +10,7 @@ import { gridSpacing } from 'config.js';
 export default function PesertaPensiun() {
   const [pesertas, setPesertas] = useState([]);
   const [query, setQuery] = useState('');
+
 
   useEffect(() => {
     getPesertas();
@@ -90,10 +92,10 @@ export default function PesertaPensiun() {
                     .map((peserta, index) => (
                       <tr key={peserta._id}>
                         <td>{index + 1}</td>
-                        <td>{peserta.tgl_pensiun}</td>
+                        <td>{moment(peserta.tgl_pensiun).format('MMMM Do YYYY')}</td>
                         <td>{peserta.nipen}</td>
                         <td>{peserta.nama_peserta}</td>
-                        <td>{peserta.tgl_lahir}</td>
+                        <td>{moment(peserta.tgl_lahir).format('MMMM Do YYYY')}</td>
                         <td>{peserta.alamat}</td>
                         <td>{peserta.nohp}</td>
                         <td>{peserta.email}</td>

@@ -109,6 +109,9 @@ class UserController{
     });
     }
 
+    static async logOut(req, res){
+      
+    }
     static async getUsers(req, res){
         try{
             const user = await User.find()

@@ -1,5 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
+import { Bar } from "react-chartjs-2";
+import moment from 'moment';
+import {
+  Chart as ChartJS,
+  BarElement,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  Tooltip,
+  Legend,
+} from "chart.js";
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  BarElement,
+  Tooltip,
+  Legend
+);
 
 // material-ui
 import { useTheme } from '@mui/material/styles';
@@ -62,8 +82,38 @@ const Default = () => {
     const response = await axios.get("http://localhost:3000/api/unitpln");
     setUnit(response.data);
   };
+  const options = {};
 
+  const pesertaPensiunData = {
+    labels: pesertas.map((peserta) => moment(peserta.tgl_pensiun).format('MMMM YYYY')),
+    datasets: [
+      {
+        label: "Peserta pensiun",
+        data: [pesertas.map((peserta) => peserta.nipen).length],
+        backgroundColor: "#1AA7EC",
+        borderColor: "black",
+        borderWidth: 1,
+      },
+    ],
+  };
 
+  const unitPlnData = {
+    labels: units.map((unit) => unit.nama_unit),
+    datasets: [
+      {
+        label: "Unit PLN",
+        data: [units.map((unit) => unit.nama_unit).length],
+        backgroundColor: "#1AA7EC",
+        borderColor: "black",
+        borderWidth: 1,
+      },
+    ],
+  };
+
+  useEffect(() => {
+    getUnits();
+    getPesertas();
+  }, []);
   return (
     <Grid container spacing={gridSpacing}>
       <Grid item xs={12}>
@@ -101,7 +151,27 @@ const Default = () => {
             />
           </Grid>
         </Grid>
+
+        
+              {/* peserta pensiun */}
+              
+          <div className="row m-3">
+            <div className="row">
+              <div className="col-lg-6">
+                <h4 className="text-center">Peserta Pensiun</h4>
+                <Bar data={pesertaPensiunData} options={options}></Bar>
+              </div>
+
+              <div className="col-lg-6">
+                <h4 className="text-center">Unit PLN</h4>
+                <Bar data={unitPlnData} options={options}></Bar>
+              </div>
+            </div>
+
+          </div>
       </Grid>
+
+
       {/* <Grid item xs={12}>
         <Grid container spacing={gridSpacing}>
           <Grid item lg={8} xs={12}>

@@ -1,4 +1,10 @@
-import React from 'react';
+import React from "react";
+// import axios from "axios";
+// import Cookies from "universal-cookie";
+// const cookies = new Cookies();
+
+// get token generated on login
+// const token = cookies.get("TOKEN");
 
 // material-ui
 import { useTheme } from '@mui/material/styles';

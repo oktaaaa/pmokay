@@ -1,12 +1,14 @@
 const { RegistrasiUlang } = require('../models/registrasiulang')
 
+
 class RegistrasiUlangController{
     static async createRegistrasiUlang(req, res){
+        const { filename } = req.file;
         const registrasiulang = new RegistrasiUlang({
             nipen: req.body.nipen,
             nama_peserta: req.body.nama_peserta,
-            // ktpWajah: req.body.ktpWajah,
-            // ktp: req.body.ktp
+            ktpWajah: filename,
+            // ktp: req.body.file,
             created_at:req.body.created_at
         })
 

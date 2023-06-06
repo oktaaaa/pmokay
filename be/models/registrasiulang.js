@@ -10,10 +10,10 @@ const RegistrasiUlang = mongoose.model('RegistrasiUlang', {
         type: String,
         required:true
     },
-    // ktpWajah:{
-    //     type: String,
-    //     required:true
-    // },
+    ktpWajah:{
+        type: String,
+        required:true
+    },
     // ktp:{
     //     type: String,
     //     required:true
