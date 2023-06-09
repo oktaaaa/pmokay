@@ -11,7 +11,6 @@ export default function PesertaPensiun() {
   const [pesertas, setPesertas] = useState([]);
   const [query, setQuery] = useState('');
 
-
   useEffect(() => {
     getPesertas();
   }, []);
@@ -41,7 +40,7 @@ export default function PesertaPensiun() {
         </Typography>
       </Breadcrumb>
       <Grid container spacing={gridSpacing}>
-        <Grid item>
+        <Grid item lg={12}>
           <Card>
             <CardHeader
               title={
@@ -52,7 +51,7 @@ export default function PesertaPensiun() {
             />
             <Divider />
             <CardContent>
-              <div className="row flex-nowrap col-md-4">
+              <div className="row flex-nowrap">
                 <input
                   type=""
                   className="form-control mb-3 border border-dark"
@@ -105,7 +104,7 @@ export default function PesertaPensiun() {
                         <td>{peserta.unit_pln}</td>
                         <td>
                           <Link
-                            className="btn btn-primary fa-regular fa-pen-to-square mb-2"
+                            className="btn btn-primary fa-regular fa-pen-to-square mb-1"
                             to={`/pesertapensiun/update/${peserta._id}`}
                           ></Link>
                           <button onClick={() => deletePeserta(peserta._id)} className="btn btn-danger fa-solid fa-trash-can"></button>

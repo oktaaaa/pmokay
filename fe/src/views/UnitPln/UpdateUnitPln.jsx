@@ -60,26 +60,32 @@ export default function UpdateUnitPln() {
             <Divider />
             <CardContent>
               <div className="form-row">
-                <div className="form-group col-lg-6 mb-2">
+                <div className="form-group mb-2">
                   <form onSubmit={updateUnit}>
-                    <label className="form-label fw-semibold">
-                      Kode Unit
-                      <input
-                        type="text"
-                        className="form-control border border-dark"
-                        value={kode_unit}
-                        onChange={(e) => setKodeUnit(e.target.value)}
-                      />
-                    </label>
-                    <label className="form-label fw-semibold">
-                      Nama Unit
+                    <div className="row">
+                      <div className="form-group mb-2">
+                        <label htmlFor="kodeUnit" className="form-label fw-semibold">
+                          Kode Unit<span style={{ color: 'red' }}>*</span>
+                        </label>
+                        <input
+                          type="text"
+                          className="form-control border border-dark"
+                          value={kode_unit}
+                          onChange={(e) => setKodeUnit(e.target.value)}
+                        />
+                      </div>
+                    </div>
+                    <div className="form-group mb-2">
+                      <label htmlFor="namaUnit" className="form-label fw-semibold">
+                        Nama Unit<span style={{ color: 'red' }}>*</span>
+                      </label>
                       <input
                         type="text"
                         className="form-control border border-dark"
                         value={nama_unit}
                         onChange={(e) => setNamaUnit(e.target.value)}
                       />
-                    </label>
+                    </div>
                     <div className="field">
                       <button type="submit" className="btn btn-primary fw-semibold mt-3">
                         Ubah

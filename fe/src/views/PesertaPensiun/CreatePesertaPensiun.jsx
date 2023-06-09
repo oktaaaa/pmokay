@@ -53,7 +53,7 @@ function CreatePesertaPensiun() {
         </Typography>
       </Breadcrumb>
       <Grid container spacing={gridSpacing}>
-        <Grid item>
+        <Grid item lg={12}>
           <Card>
             <CardHeader
               title={
@@ -65,10 +65,10 @@ function CreatePesertaPensiun() {
             <Divider />
             <CardContent>
               <div className="form-row">
-                <div className="form-group col-lg-12 mb-2">
+                <div className="form-group mb-2">
                   <form className="mx-5" onSubmit={createPesertaPensiun}>
                     <div className="row">
-                      <div className="form-group col-md-12 mb-2">
+                      <div className="form-group mb-2">
                         <label htmlFor="tgl-pensiun" className="fw-semibold">
                           Tanggal Pensiun <span style={{ color: 'red' }}>*</span>
                         </label>
@@ -80,7 +80,7 @@ function CreatePesertaPensiun() {
                         />
                       </div>
 
-                      <div className="form-group col-md-12 mb-2">
+                      <div className="form-group mb-2">
                         <label htmlFor="tgl-pensiun" className="fw-semibold">
                           NIPEN <span style={{ color: 'red' }}>*</span>
                         </label>
@@ -93,7 +93,7 @@ function CreatePesertaPensiun() {
                         />
                       </div>
 
-                      <div className="form-group col-md-12 mb-2">
+                      <div className="form-group mb-2">
                         <label htmlFor="tgl-pensiun" className="fw-semibold">
                           Nama Peserta Pensiun <span style={{ color: 'red' }}>*</span>
                         </label>
@@ -107,7 +107,7 @@ function CreatePesertaPensiun() {
                     </div>
 
                     <div className="row">
-                      <div className="form-group col-md-12 mb-2">
+                      <div className="form-group mb-2">
                         <label htmlFor="tgl-pensiun" className="fw-semibold">
                           Tanggal Lahir <span style={{ color: 'red' }}>*</span>
                         </label>
@@ -119,7 +119,7 @@ function CreatePesertaPensiun() {
                         />
                       </div>
 
-                      <div className="form-group col-md-12 mb-2">
+                      <div className="form-group mb-2">
                         <label htmlFor="tgl-pensiun" className="fw-semibold">
                           Alamat <span style={{ color: 'red' }}>*</span>
                         </label>
@@ -133,7 +133,7 @@ function CreatePesertaPensiun() {
                     </div>
 
                     <div className="row">
-                      <div className="form-group col-md-12 mb-2">
+                      <div className="form-group mb-2">
                         <label htmlFor="tgl-pensiun" className="fw-semibold">
                           No. HP <span style={{ color: 'red' }}>*</span>
                         </label>
@@ -145,7 +145,7 @@ function CreatePesertaPensiun() {
                         />
                       </div>
 
-                      <div className="form-group col-md-12 mb-2">
+                      <div className="form-group mb-2">
                         <label htmlFor="tgl-pensiun" className="fw-semibold">
                           E-mail <span style={{ color: 'red' }}>*</span>
                         </label>
@@ -159,7 +159,7 @@ function CreatePesertaPensiun() {
                     </div>
 
                     <div className="row">
-                      <div className="form-group col-md-12 mb-2">
+                      <div className="form-group mb-2">
                         <label htmlFor="tgl-pensiun" className="fw-semibold">
                           Nama Bank <span style={{ color: 'red' }}>*</span>
                         </label>
@@ -171,7 +171,7 @@ function CreatePesertaPensiun() {
                         />
                       </div>
 
-                      <div className="form-group col-md-12 mb-2">
+                      <div className="form-group mb-2">
                         <label htmlFor="tgl-pensiun" className="fw-semibold">
                           No Rekening <span style={{ color: 'red' }}>*</span>
                         </label>
@@ -185,7 +185,7 @@ function CreatePesertaPensiun() {
                     </div>
 
                     <div className="row">
-                      <div className="form-group col-md-12 mb-2">
+                      <div className="form-group mb-2">
                         <label htmlFor="tgl-pensiun" className="fw-semibold">
                           Besar Manfaat Pensiun <span style={{ color: 'red' }}>*</span>
                         </label>
@@ -198,7 +198,7 @@ function CreatePesertaPensiun() {
                       </div>
                     </div>
 
-                    <div className="form-group col-md-12 mb-2">
+                    <div className="form-group mb-2">
                       <label htmlFor="tgl-pensiun" className="fw-semibold">
                         Unit PLN <span style={{ color: 'red' }}>*</span>
                       </label>

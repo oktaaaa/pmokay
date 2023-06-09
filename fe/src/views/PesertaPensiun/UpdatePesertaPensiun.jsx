@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Card, CardHeader, CardContent, Divider, Grid, Typography } from '@mui/material';
-import DatePicker from 'react-datepicker';
+// import DatePicker from "react-datepicker";
 // project import
 import Breadcrumb from 'component/Breadcrumb';
 import { gridSpacing } from 'config.js';
@@ -20,7 +20,7 @@ function UpdatePesertaPensiun() {
   const [no_rek, setNoRek] = useState('');
   const [besar_mp, setBesarMp] = useState('');
   const [unit_pln, setUnitPln] = useState('');
-  const [Cdate, setDate] = useState(tgl_lahir.toLocaleDateString('fr-FR'));
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -92,22 +92,19 @@ function UpdatePesertaPensiun() {
                     <div className="row">
                       <div className="form-group col-md-12 mb-2">
                         <label htmlFor="tgl-pensiun" className="fw-semibold">
-                          Tanggal Pensiun
+                          Tanggal Pensiun <span style={{ color: 'red' }}>*</span>
                         </label>
-                        <DatePicker
-                          dateFormat="dd/MM/yyyy"
-                          value={Cdate}
-                          onChange={(date) => {
-                            const d = tgl_lahir(date).toLocaleDateString('fr-FR');
-                            console.log(d);
-                            setDate(d);
-                          }}
+                        <input
+                          type="date"
+                          className="form-control border border-dark"
+                          value={tgl_pensiun}
+                          onChange={(e) => setTglPensiun(e.target.value)}
                         />
                       </div>
 
                       <div className="form-group col-md-12 mb-2">
                         <label htmlFor="tgl-pensiun" className="fw-semibold">
-                          NIPEN
+                          NIPEN<span style={{ color: 'red' }}>*</span>
                         </label>
                         <input
                           type="text"
@@ -120,7 +117,7 @@ function UpdatePesertaPensiun() {
 
                       <div className="form-group col-md-12 mb-2">
                         <label htmlFor="tgl-pensiun" className="fw-semibold">
-                          Nama Peserta Pensiun
+                          Nama Peserta Pensiun<span style={{ color: 'red' }}>*</span>
                         </label>
                         <input
                           type="text"
@@ -134,7 +131,7 @@ function UpdatePesertaPensiun() {
                     <div className="row">
                       <div className="form-group col-md-12 mb-2">
                         <label htmlFor="tgl-pensiun" className="fw-semibold">
-                          Tanggal Lahir
+                          Tanggal Lahir<span style={{ color: 'red' }}>*</span>
                         </label>
                         <input
                           type="date"
@@ -146,7 +143,7 @@ function UpdatePesertaPensiun() {
 
                       <div className="form-group col-md-12 mb-2">
                         <label htmlFor="tgl-pensiun" className="fw-semibold">
-                          Alamat
+                          Alamat<span style={{ color: 'red' }}>*</span>
                         </label>
                         <input
                           type="text"
@@ -160,7 +157,7 @@ function UpdatePesertaPensiun() {
                     <div className="row">
                       <div className="form-group col-md-12 mb-2">
                         <label htmlFor="tgl-pensiun" className="fw-semibold">
-                          No. HP
+                          No. HP<span style={{ color: 'red' }}>*</span>
                         </label>
                         <input
                           type="text"
@@ -172,7 +169,7 @@ function UpdatePesertaPensiun() {
 
                       <div className="form-group col-md-12 mb-2">
                         <label htmlFor="tgl-pensiun" className="fw-semibold">
-                          E-mail
+                          E-mail<span style={{ color: 'red' }}>*</span>
                         </label>
                         <input
                           type="email"
@@ -186,7 +183,7 @@ function UpdatePesertaPensiun() {
                     <div className="row">
                       <div className="form-group col-md-12 mb-2">
                         <label htmlFor="tgl-pensiun" className="fw-semibold">
-                          Nama Bank
+                          Nama Bank<span style={{ color: 'red' }}>*</span>
                         </label>
                         <input
                           type="text"
@@ -198,7 +195,7 @@ function UpdatePesertaPensiun() {
 
                       <div className="form-group col-md-12 mb-2">
                         <label htmlFor="tgl-pensiun" className="fw-semibold">
-                          No Rekening
+                          No Rekening<span style={{ color: 'red' }}>*</span>
                         </label>
                         <input
                           type="text"
@@ -212,7 +209,7 @@ function UpdatePesertaPensiun() {
                     <div className="row">
                       <div className="form-group col-md-12 mb-2">
                         <label htmlFor="tgl-pensiun" className="fw-semibold">
-                          Besar Manfaat Pensiun
+                          Besar Manfaat Pensiun<span style={{ color: 'red' }}>*</span>
                         </label>
                         <input
                           type="text"
@@ -225,7 +222,7 @@ function UpdatePesertaPensiun() {
 
                     <div className="form-group col-md-12 mb-2">
                       <label htmlFor="tgl-pensiun" className="fw-semibold">
-                        Unit PLN{' '}
+                        Unit PLN<span style={{ color: 'red' }}>*</span>
                       </label>
                       <input
                         type="text"

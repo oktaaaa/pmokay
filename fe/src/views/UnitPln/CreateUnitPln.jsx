@@ -63,7 +63,7 @@ export default function CreateUnitPln() {
                         />
                       </div>
 
-                      <div className="form-group col-lg-12 mb-2">
+                      <div className="form-group mb-2">
                         <label htmlFor="namaUnit" className="form-label fw-semibold">
                           Nama Unit<span style={{ color: 'red' }}>*</span>
                         </label>
