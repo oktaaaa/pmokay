@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Card, CardHeader, CardContent, Divider, Grid, Typography } from '@mui/material';
-
+import DatePicker from 'react-datepicker';
 // project import
 import Breadcrumb from 'component/Breadcrumb';
 import { gridSpacing } from 'config.js';
@@ -20,7 +20,7 @@ function UpdatePesertaPensiun() {
   const [no_rek, setNoRek] = useState('');
   const [besar_mp, setBesarMp] = useState('');
   const [unit_pln, setUnitPln] = useState('');
-
+  const [Cdate, setDate] = useState(tgl_lahir.toLocaleDateString('fr-FR'));
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -75,7 +75,7 @@ function UpdatePesertaPensiun() {
       </Breadcrumb>
 
       <Grid container spacing={gridSpacing}>
-        <Grid item>
+        <Grid item lg={12}>
           <Card>
             <CardHeader
               title={
@@ -94,11 +94,14 @@ function UpdatePesertaPensiun() {
                         <label htmlFor="tgl-pensiun" className="fw-semibold">
                           Tanggal Pensiun
                         </label>
-                        <input
-                          type="date"
-                          className="form-control border border-dark"
-                          value={tgl_pensiun}
-                          onChange={(e) => setTglPensiun(e.target.value)}
+                        <DatePicker
+                          dateFormat="dd/MM/yyyy"
+                          value={Cdate}
+                          onChange={(date) => {
+                            const d = tgl_lahir(date).toLocaleDateString('fr-FR');
+                            console.log(d);
+                            setDate(d);
+                          }}
                         />
                       </div>
 

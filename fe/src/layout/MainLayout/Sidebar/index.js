@@ -13,7 +13,7 @@ import MenuList from './MenuList';
 import { drawerWidth } from 'config.js';
 
 // assets
-import logo from 'assets/images/logo-ikpln-removebg-preview.png';
+import logo from 'assets/images/IKPLNWS2JB.png';
 
 // custom style
 const Nav = styled((props) => <nav {...props} />)(({ theme }) => ({

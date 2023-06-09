@@ -36,7 +36,7 @@ export default function CreateUnitPln() {
         </Typography>
       </Breadcrumb>
       <Grid container spacing={gridSpacing}>
-        <Grid item>
+        <Grid item lg={12}>
           <Card>
             <CardHeader
               title={
@@ -48,30 +48,37 @@ export default function CreateUnitPln() {
             <Divider />
             <CardContent>
               <div className="form-row">
-                <div className="form-group col-lg-6 mb-2">
+                <div className="form-group mb-2">
                   <form onSubmit={createUnit}>
-                    <label className="form-label fw-semibold">
-                      Kode Unit
-                      <input
-                        type="text"
-                        className="form-control border border-dark"
-                        value={kode_unit}
-                        onChange={(e) => setKodeUnit(e.target.value)}
-                      />
-                    </label>
-                    <label className="form-label fw-semibold">
-                      Nama Unit
-                      <input
-                        type="text"
-                        className="form-control border border-dark"
-                        value={nama_unit}
-                        onChange={(e) => setNamaUnit(e.target.value)}
-                      />
-                    </label>
-                    <div className="field">
-                      <button type="submit" className="btn btn-primary fw-semibold mt-3">
-                        Simpan
-                      </button>
+                    <div className="row">
+                      <div className="form-group mb-2">
+                        <label htmlFor="kodeUnit" className="form-label fw-semibold">
+                          Kode Unit<span style={{ color: 'red' }}>*</span>
+                        </label>
+                        <input
+                          type="text"
+                          className="form-control border border-dark"
+                          value={kode_unit}
+                          onChange={(e) => setKodeUnit(e.target.value)}
+                        />
+                      </div>
+
+                      <div className="form-group col-lg-12 mb-2">
+                        <label htmlFor="namaUnit" className="form-label fw-semibold">
+                          Nama Unit<span style={{ color: 'red' }}>*</span>
+                        </label>
+                        <input
+                          type="text"
+                          className="form-control border border-dark"
+                          value={nama_unit}
+                          onChange={(e) => setNamaUnit(e.target.value)}
+                        />
+                      </div>
+                      <div className="field">
+                        <button type="submit" className="btn btn-primary fw-semibold mt-3">
+                          Simpan
+                        </button>
+                      </div>
                     </div>
                   </form>
                 </div>

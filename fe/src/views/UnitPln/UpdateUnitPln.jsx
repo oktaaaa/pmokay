@@ -48,7 +48,7 @@ export default function UpdateUnitPln() {
         </Typography>
       </Breadcrumb>
       <Grid container spacing={gridSpacing}>
-        <Grid item>
+        <Grid item lg={12}>
           <Card>
             <CardHeader
               title={

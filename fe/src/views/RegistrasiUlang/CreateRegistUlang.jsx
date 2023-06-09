@@ -49,7 +49,7 @@ const CreateRegistUlang = () => {
         </Typography>
       </Breadcrumb>
       <Grid container spacing={gridSpacing}>
-        <Grid item>
+        <Grid item lg={12}>
           <Card>
             <CardHeader
               title={
@@ -59,12 +59,12 @@ const CreateRegistUlang = () => {
               }
             />
             <Divider />
-            <CardContent>
+            <CardContent >
               <div className="form-row">
-                <div className="form-group col-lg-12 mb-2">
+                <div className="form-group mb-2">
                   <form className="mx-5" onSubmit={createRegistrasiUlang}>
                     <div className="row">
-                      <div className="form-group col-md-12 mb-2">
+                      <div className="form-group mb-2">
                         <label htmlFor="nip" className="fw-semibold">
                           NIPEN
                         </label>
@@ -77,7 +77,7 @@ const CreateRegistUlang = () => {
                         />
                       </div>
 
-                      <div className="form-group col-md-12 mb-2">
+                      <div className="form-group col-lg-12 mb-2">
                         <label htmlFor="tgl-pensiun" className="fw-semibold">
                           Nama Peserta Pensiun
                         </label>
@@ -89,7 +89,7 @@ const CreateRegistUlang = () => {
                         />
                       </div>
 
-                      <div className="form-group col-md-12 mb-2">
+                      <div className="form-group col-lg-12 mb-2">
                         <label htmlFor="fotoWajahKtp" className="fw-semibold">
                           Upload Foto Wajah dan KTP
                         </label>

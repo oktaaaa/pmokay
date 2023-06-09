@@ -12,7 +12,7 @@ import { drawerWidth } from 'config.js';
 
 // assets
 import MenuTwoToneIcon from '@mui/icons-material/MenuTwoTone';
-import logo from 'assets/images/logo-ikpln-removebg-preview.png';
+import logo from 'assets/images/IKPLNWS2JB.png';
 
 // ==============================|| HEADER ||============================== //
 
