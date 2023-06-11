@@ -3,11 +3,10 @@ import { useNavigate } from 'react-router';
 import axios from "axios";
 import Cookies from "universal-cookie"
 // material-ui
-import { useTheme } from '@mui/material/styles';
+// import { useTheme } from '@mui/material/styles';
 import {
   Box,
   Button,
-  FormHelperText,
   Grid,
   TextField,
   Typography,
@@ -19,38 +18,35 @@ import {
 } from '@mui/material';
 
 //  third party
-
-import { Formik } from 'formik';
+// import * as Yup from 'yup';
+// import { Formik } from 'formik';
 
 // assets
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
+
 // ==============================|| FIREBASE LOGIN ||============================== //
 const cookies = new Cookies();
-const FirebaseLogin = ({ ...rest }) => {
-  const theme = useTheme();
+const FirebaseLogin = ()=> {
+  // const theme = useTheme();
   const [showPassword, setShowPassword] = React.useState(false);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-const navigate = useNavigate();
+
+  const navigate = useNavigate();
+
   // const [login, setLogin] = useState(false);
-  const [error,setError]=useState();
+  const [error,setError]=useState(false);
   const logInButton = async (e) => {
-    // e.preventDefault();
-    // try {
-    //   await axios.post("http://localhost:3000/api/users/login", {
-    //     email,
-    //     password,
-    //   });
-    //  navigate('/dashboard/default')
-      
-    // } catch (error) {
-    //   console.log(error.message);
-    // }
+   
     e.preventDefault();
 
+    if(!email || !password){
+      setError(true)
+      return false
+    }
     const configuration = {
       method: "post",
       url: "http://localhost:3000/api/users/login",
@@ -74,8 +70,9 @@ const navigate = useNavigate();
       })
       .catch((error) => {
         console.log(error)
-        setError('Invalid Username or Password')
+        setError('Email atau password salah')
       });
+      
   };
 
   const handleClickShowPassword = () => {
@@ -88,33 +85,33 @@ const navigate = useNavigate();
 
   return (
     <>
-      <Formik
-       
-      >
-        {({ errors, handleBlur, isSubmitting, touched}) => (
-          <form noValidate onSubmit={logInButton} {...rest}>
+          <form onSubmit={logInButton}>
             <TextField
-              error={Boolean(touched.email && errors.email)}
+            
               fullWidth
-              helperText={touched.email && errors.email}
-              label="Email Address"
+              
+              label="Email"
               margin="normal"
               name="email"
-              onBlur={handleBlur}
+             
               onChange= {(e) => setEmail(e.target.value)} 
               type="email"
               value={email}
               variant="outlined"
+              
             />
-
-            <FormControl fullWidth error={Boolean(touched.password && errors.password)} sx={{ mt: theme.spacing(3), mb: theme.spacing(1) }}>
-              <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+             <FormControl fullWidth>
+            {error && !email && <p style = {{color: "red"}}> Masukkan email</p>} </FormControl>
+            
+            <FormControl fullWidth>
+              <InputLabel htmlFor="outlined-adornment-password"
+              >Password</InputLabel>
               <OutlinedInput
+              
                 id="outlined-adornment-password"
                 type={showPassword ? 'text' : 'password'}
                 value={password}
                 name="password"
-                onBlur={handleBlur}
                 onChange= {(e) => setPassword(e.target.value)}
                 label="Password"
                 endAdornment={
@@ -131,12 +128,11 @@ const navigate = useNavigate();
                   </InputAdornment>
                 }
               />
-              {touched.password && errors.password && (
-                <FormHelperText error id="standard-weight-helper-text">
-                  {' '}
-                  {errors.password}{' '}
-                </FormHelperText>
-              )}
+              <FormControl fullWidth>
+            {error && !password && <p style = {{color: "red"}}> Masukkan password</p>} </FormControl>
+              {/* {errors.password && <p style = {{color: "red"}}> {errors.password}</p>} */}
+               
+            
             </FormControl>
             <Grid container justifyContent="flex-end">
               <Grid item>
@@ -146,22 +142,20 @@ const navigate = useNavigate();
               </Grid>
             </Grid>
 
-            {errors.submit && (
-              <Box mt={3}>
+          
+              {/* <Box mt={3}>
                 <FormHelperText error>{errors.submit}</FormHelperText>
-              </Box>
-            )}
-
+              </Box> */}
+ 
             <Box mt={2}>
-              <Button color="primary" disabled={isSubmitting} fullWidth size="large" type="submit" variant="contained">
+              <Button color="primary"  fullWidth size="large" type="submit" variant="contained">
                 Log In
               </Button>
               
-              {error?<p className="text-danger">{error}</p>:null}  
+              {error?<p className="text-danger">{error}</p>:null}
             </Box>
           </form>
-        )}
-      </Formik>
+       
     </>
   );
 };
