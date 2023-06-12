@@ -94,7 +94,7 @@ export default function UnitPln() {
 
                 <tbody>
                   {units
-                    .filter((unit) => unit.nama_unit.toLowerCase().includes(query))
+                    .filter( (unit) => unit === 0? <div>not found</div>: unit.nama_unit.toLowerCase().includes(query))
                     .map((unit, index) => (
                       <tr key={unit._id}>
                         <td className="text-center justify-content-center">{index + 1}</td>
@@ -106,6 +106,8 @@ export default function UnitPln() {
                         </td>
                       </tr>
                     ))}
+
+                  
                 </tbody>
               </table>
             </CardContent>

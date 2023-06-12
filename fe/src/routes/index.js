@@ -8,5 +8,6 @@ import { RenderRoutes } from './RenderRoutes';
 // ==============================|| ROUTING RENDER ||============================== //
 
 export default function ThemeRoutes() {
+  
   return useRoutes([FirstPage, MainRoutes, AuthenticationRoutes, RenderRoutes]);
 }
