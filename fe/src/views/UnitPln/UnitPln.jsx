@@ -13,9 +13,15 @@ export default function UnitPln() {
   const [query, setQuery] = useState('');
 
   useEffect(() => {
+   
     getUnits();
+    
+  
   }, []);
 
+  const filteredUnit = 
+     units.filter( (unit) => {return unit.nama_unit.toLowerCase().includes(query)})
+  
   const getUnits = async () => {
     const response = await axios.get('http://localhost:3000/api/unitpln');
     setUnit(response.data);
@@ -92,9 +98,9 @@ export default function UnitPln() {
                   </tr>
                 </thead>
 
+              {filteredUnit?.length > 0? 
                 <tbody>
                   {units
-                    .filter( (unit) => unit === 0? <div>not found</div>: unit.nama_unit.toLowerCase().includes(query))
                     .map((unit, index) => (
                       <tr key={unit._id}>
                         <td className="text-center justify-content-center">{index + 1}</td>
@@ -107,8 +113,10 @@ export default function UnitPln() {
                       </tr>
                     ))}
 
-                  
                 </tbody>
+                : <div className='text-center'> Data tidak ditemukan </div>
+              }
+
               </table>
             </CardContent>
           </Card>

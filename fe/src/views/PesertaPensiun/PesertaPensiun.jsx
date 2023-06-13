@@ -20,6 +20,9 @@ export default function PesertaPensiun() {
     setPesertas(response.data);
   };
 
+  // to search for data
+  const filteredPeserta = pesertas.filter((peserta) => {return peserta.nama_peserta.toLowerCase().includes(query)})
+
   const deletePeserta = async (id) => {
     try {
       await axios.delete(`http://localhost:3000/api/pesertapensiun/${id}`);
@@ -84,10 +87,10 @@ export default function PesertaPensiun() {
                     <th>Aksi</th>
                   </tr>
                 </thead>
-
+              
+              {filteredPeserta?.length > 0?
                 <tbody>
                   {pesertas
-                    .filter((peserta) => peserta.nama_peserta.toLowerCase().includes(query))
                     .map((peserta, index) => (
                       <tr key={peserta._id}>
                         <td>{index + 1}</td>
@@ -112,6 +115,8 @@ export default function PesertaPensiun() {
                       </tr>
                     ))}
                 </tbody>
+                : <div className='text-center'> Data tidak ditemukan </div>
+              }
               </table>
             </CardContent>
           </Card>
