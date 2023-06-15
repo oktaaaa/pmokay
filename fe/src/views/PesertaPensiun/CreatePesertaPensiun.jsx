@@ -18,7 +18,7 @@ function CreatePesertaPensiun() {
   const [nama_bank, setNamaBank] = useState('');
   const [no_rek, setNoRek] = useState('');
   const [besar_mp, setBesarMp] = useState('');
-  const [unit_pln, setUnitPln] = useState('');
+  const [unit_pln, setUnitPln] = useState([]);
 
   const navigate = useNavigate();
   const createPesertaPensiun = async (e) => {

@@ -1,5 +1,5 @@
 const chartData = {
-  type: 'line',
+  type: 'bar',
   height: 115,
   options: {
     chart: {
@@ -26,7 +26,7 @@ const chartData = {
         enabled: false
       },
       x: {
-        show: false
+        show: true
       },
       y: {
         title: {
