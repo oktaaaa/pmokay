@@ -38,6 +38,9 @@ import {
 
 
 import LaporanTest from './chart/Laporantest';
+import LaporanAktif from './chart/LaporanAktif';
+import LaporanUnit from './chart/LaporanUnit';
+import LaporanNonAktif from './chart/LaporanNonAktif';
 // import RevenuChartCard from './RevenuChartCard';
 // import RevenuChartCardData from './chart/revenu-chart';
 import ReportCard from './ReportCard';
@@ -71,7 +74,7 @@ import MainCard from 'component/MainCard';
 const status = [
   {
     value: 'today',
-    label: '2021'
+    label: '2023'
   },
   {
     value: 'month',
@@ -79,7 +82,22 @@ const status = [
   },
   {
     value: 'year',
-    label: '2023'
+    label: '2021'
+  }
+];
+
+const unitspln = [
+  {
+    value: 'today',
+    label: 'Unit Induk S2JB'
+  },
+  {
+    value: 'month',
+    label: 'Unit Bengkulu'
+  },
+  {
+    value: 'year',
+    label: 'Unit Jambi'
   }
 ];
 const Default = () => {
@@ -97,20 +115,23 @@ const Default = () => {
     getUnits();
     
   }, []);
-
-  const getPesertas = () => {
-    let pensiunan = []
-    axios.get(
-      "http://localhost:3000/api/pesertapensiun"
-    ).then(res =>{
-      console.log(res.data)
-      for(const p of res.data){
-        pensiunan.push(p.unit_pln)
-      }
-    }).catch(err => {
-      console.log(err)
-    })
-    setPesertas();
+  const getPesertas = async () => {
+    const response = await axios.get('http://localhost:3000/api/pesertapensiun');
+    setPesertas(response.data);
+  };
+  // const getPesertas = () => {
+  //   let pensiunan = []
+  //   axios.get(
+  //     "http://localhost:3000/api/pesertapensiun"
+  //   ).then(res =>{
+  //     console.log(res.data)
+  //     for(const p of res.data){
+  //       pensiunan.push(p.unit_pln)
+  //     }
+  //   }).catch(err => {
+  //     console.log(err)
+  //   })
+  //   setPesertas();
     // console.log(pensiunan)
 
     // setChartdata({
@@ -126,7 +147,7 @@ const Default = () => {
     // ],
     // })
     
-  };
+  //};
 
   const getUnits = async () => {
     const response = await axios.get("http://localhost:3000/api/unitpln");
@@ -143,7 +164,7 @@ const Default = () => {
         <Grid container spacing={gridSpacing}>
           <Grid item lg={3} sm={6} xs={12}>
             <ReportCard
-              primary={pesertas}
+              primary={pesertas.length}
               secondary="Peserta Pensiun"
               color={theme.palette.warning.main}
               iconPrimary={Diversity3Icon}
@@ -227,7 +248,7 @@ const Default = () => {
       <Grid item xs={12} md={7} lg={6}>
         <Grid container alignItems="center" justifyContent="space-between">
           <Grid item>
-            <Typography variant="h5">Peserta Per-Unit</Typography>
+            <Typography variant="h5">Peserta Pensiun Per-Unit</Typography>
           </Grid>
           <Grid item>
             <TextField
@@ -238,21 +259,21 @@ const Default = () => {
               onChange={(e) => setValue(e.target.value)}
               sx={{ '& .MuiInputBase-input': { py: 0.5, fontSize: '0.875rem' } }}
             >
-              {/* {status.map((option) => (
+              {unitspln.map((option) => (
                 <MenuItem key={option.value} value={option.value}>
                   {option.label}
                 </MenuItem>
-              ))} */}
+              ))}
             </TextField>
           </Grid>
         </Grid>
         <MainCard sx={{ mt: 1.75 }}>
          
-          <LaporanTest />
+          <LaporanUnit />
         </MainCard>
       </Grid>
 
-      <Grid item xs={12} md={7} lg={6}>
+     <Grid item xs={12} md={7} lg={6}>
         <Grid container alignItems="center" justifyContent="space-between">
           <Grid item>
             <Typography variant="h5">Peserta Pensiun Aktif</Typography>
@@ -261,18 +282,22 @@ const Default = () => {
             <TextField
               id="standard-select-currency"
               size="small"
-              
+              select
               value={value}
               onChange={(e) => setValue(e.target.value)}
               sx={{ '& .MuiInputBase-input': { py: 0.5, fontSize: '0.875rem' } }}
             >
-              
+              {status.map((option) => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
             </TextField>
           </Grid>
         </Grid>
         <MainCard sx={{ mt: 1.75 }}>
          
-          <LaporanTest />
+          <LaporanAktif />
         </MainCard>
       </Grid>
 
@@ -282,12 +307,25 @@ const Default = () => {
             <Typography variant="h5">Peserta Pensiun Non-Aktif</Typography>
           </Grid>
           <Grid item>
-            
+            <TextField
+              id="standard-select-currency"
+              size="small"
+              select
+              value={value}
+              onChange={(e) => setValue(e.target.value)}
+              sx={{ '& .MuiInputBase-input': { py: 0.5, fontSize: '0.875rem' } }}
+            >
+              {status.map((option) => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+            </TextField>
           </Grid>
         </Grid>
         <MainCard sx={{ mt: 1.75 }}>
          
-          <LaporanTest />
+          <LaporanNonAktif />
         </MainCard>
       </Grid>
     </Grid>

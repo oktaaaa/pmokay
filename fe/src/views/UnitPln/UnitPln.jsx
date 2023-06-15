@@ -36,7 +36,7 @@ export default function UnitPln() {
     // }
 
     Swal.fire({
-      title: 'Are you sure?',
+      title: 'Apa anda yakin ingin menghapus data?',
       text: "You won't be able to revert this!",
       icon: 'warning',
       showCancelButton: true,
@@ -49,7 +49,7 @@ export default function UnitPln() {
         Swal.fire('Deleted!', 'Your file has been deleted.', 'success');
         setTimeout(() => {
           getUnits();
-        }, 2000);
+        });
       }
     });
   };

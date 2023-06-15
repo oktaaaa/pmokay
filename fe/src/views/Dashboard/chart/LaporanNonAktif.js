@@ -81,7 +81,7 @@ const columnChartOptions = {
 
 // ==============================|| SALES COLUMN CHART ||============================== //
 
-const LaporanTest = () => {
+const LaporanNonAktif = () => {
   
   const theme = useTheme();
 
@@ -102,7 +102,7 @@ const LaporanTest = () => {
     
     {
       name: 'Revenue',
-      data: [20, 45, 50, 15, 16, 9]
+      data: [5, 20, 10, 30, 25, 15]
     }
   ]);
 
@@ -150,4 +150,4 @@ const LaporanTest = () => {
   );
 };
 
-export default LaporanTest;
+export default LaporanNonAktif;

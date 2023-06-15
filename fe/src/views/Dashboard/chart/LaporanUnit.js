@@ -34,7 +34,7 @@ const columnChartOptions = {
   },
   yaxis: {
     title: {
-      text: '$ (thousands)'
+      text: ' Unit'
     }
   },
   fill: {
@@ -43,7 +43,7 @@ const columnChartOptions = {
   tooltip: {
     y: {
       formatter(val) {
-        return `$ ${val} thousands`;
+        return `$ ${val} Units`;
       }
     }
   },
@@ -81,7 +81,7 @@ const columnChartOptions = {
 
 // ==============================|| SALES COLUMN CHART ||============================== //
 
-const LaporanTest = () => {
+const LaporanUnit = () => {
   
   const theme = useTheme();
 
@@ -102,7 +102,7 @@ const LaporanTest = () => {
     
     {
       name: 'Revenue',
-      data: [20, 45, 50, 15, 16, 9]
+      data: [10, 2, 10, 2, 15, 9]
     }
   ]);
 
@@ -150,4 +150,4 @@ const LaporanTest = () => {
   );
 };
 
-export default LaporanTest;
+export default LaporanUnit;

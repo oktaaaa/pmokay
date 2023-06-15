@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { Card, CardHeader, CardContent, Divider, Grid, Typography } from '@mui/material';
 import moment from 'moment';
-
+import Swal from 'sweetalert2';
 // project import
 import Breadcrumb from 'component/Breadcrumb';
 import { gridSpacing } from 'config.js';
@@ -21,15 +21,28 @@ export default function PesertaPensiun() {
   };
 
   // to search for data
-  const filteredPeserta = pesertas.filter((peserta) => {return peserta.nama_peserta.toLowerCase().includes(query)})
+  const filteredPeserta = pesertas.filter((peserta) => {
+    return peserta.nama_peserta.toLowerCase().includes(query);
+  });
 
   const deletePeserta = async (id) => {
-    try {
-      await axios.delete(`http://localhost:3000/api/pesertapensiun/${id}`);
-      getPesertas();
-    } catch (error) {
-      console.log(error);
-    }
+    Swal.fire({
+      title: 'Apa anda yakin ingin menghapus data?',
+      text: 'Data tidak bisa kembali',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Hapus!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios.delete(`http://localhost:3000/api/pesertapensiun/${id}`);
+        Swal.fire('Deleted!', 'Data telah terhapus.', 'success');
+        setTimeout(() => {
+          getUnits();
+        });
+      }
+    });
   };
 
   return (
@@ -87,11 +100,10 @@ export default function PesertaPensiun() {
                     <th>Aksi</th>
                   </tr>
                 </thead>
-              
-              {filteredPeserta?.length > 0?
-                <tbody>
-                  {pesertas
-                    .map((peserta, index) => (
+
+                {filteredPeserta?.length > 0 ? (
+                  <tbody>
+                    {pesertas.map((peserta, index) => (
                       <tr key={peserta._id}>
                         <td>{index + 1}</td>
                         <td>{moment(peserta.tgl_pensiun).format('MMMM Do YYYY')}</td>
@@ -114,9 +126,10 @@ export default function PesertaPensiun() {
                         </td>
                       </tr>
                     ))}
-                </tbody>
-                : <div className='text-center'> Data tidak ditemukan </div>
-              }
+                  </tbody>
+                ) : (
+                  <div className="text-center"> Data tidak ditemukan </div>
+                )}
               </table>
             </CardContent>
           </Card>

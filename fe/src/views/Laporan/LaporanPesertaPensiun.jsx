@@ -70,7 +70,7 @@ const LaporanPesertaPensiun = () => {
             />
             <Divider />
             <div className="row">
-              <button className="btn btn-success" onClick={generatePDF}>
+              <button className="btn btn-success col-md-2" onClick={generatePDF}>
                 PDF
               </button>
             </div>
