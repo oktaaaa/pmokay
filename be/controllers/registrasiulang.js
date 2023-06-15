@@ -8,7 +8,7 @@ class RegistrasiUlangController{
             nipen: req.body.nipen,
             nama_peserta: req.body.nama_peserta,
             ktpWajah: filename,
-            // ktp: req.body.file,
+            
             created_at:req.body.created_at
         })
 
@@ -39,6 +39,8 @@ class RegistrasiUlangController{
         } catch(error){
             res.status(500).json(error)
         }
+
+        
        
     }
 }

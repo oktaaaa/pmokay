@@ -103,18 +103,7 @@ const CreateRegistUlang = () => {
                         />
                       </div>
 
-                      {/* <div className="form-group col-md-12 mb-2">
-                        <label htmlFor="fotoWajahKtp" className="fw-semibold">
-                          Upload KTP
-                        </label>
-                        <input
-                          type="file"
-                          className="form-control border border-dark"
-                          id="ktp"
-                          value={ktp}
-                          onChange={(e) => setKtp(e.target.value)}
-                        />
-                      </div> */}
+                     
                     </div>
 
                     <div className="">

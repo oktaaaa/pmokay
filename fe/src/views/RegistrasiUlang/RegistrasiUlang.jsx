@@ -59,7 +59,6 @@ const RegistrasiUlang = () => {
                     <th>NIPEN</th>
                     <th>Nama Peserta</th>
                     <th>Foto Wajah dan KTP</th>
-                    <th>Foto KTP</th>
                   </tr>
                 </thead>
 
@@ -72,9 +71,8 @@ const RegistrasiUlang = () => {
                         <td>{registrasi.nipen}</td>
                         <td>{registrasi.nama_peserta}</td>
                         <td>
-                          <img className="img img-fluid" src={`http://localhost:3000/${registrasi.ktpWajah}`} alt="users" />
+                          <img className="img img-fluid" width = "50%" src={`http://localhost:3000/${registrasi.ktpWajah}`} alt="users" />
                         </td>
-                        <td>{registrasi.ktp}</td>
                       </tr>
                     ))}
                 </tbody>
